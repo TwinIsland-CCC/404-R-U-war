@@ -1,0 +1,9 @@
+{
+    "name": "ccc/advanced",
+    "autoload": {
+        "psr-4": {
+            "Ccc\\Advanced\\": "src/"
+        }
+    },
+    "require": {}
+}
