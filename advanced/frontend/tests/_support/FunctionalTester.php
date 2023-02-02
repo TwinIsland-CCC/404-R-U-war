@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\tests;
 
 /**
@@ -7,7 +8,7 @@ namespace frontend\tests;
  * @method void wantTo($text)
  * @method void execute($callable)
  * @method void expectTo($prediction)
- * @method void expect($prediction)
+ * @method void verify($prediction)
  * @method void amGoingTo($argumentation)
  * @method void am($role)
  * @method void lookForwardTo($achieveValue)
@@ -23,11 +24,11 @@ class FunctionalTester extends \Codeception\Actor
 
     public function seeValidationError($message)
     {
-        $this->see($message, '.help-block');
+        $this->see($message, '.invalid-feedback');
     }
 
     public function dontSeeValidationError($message)
     {
-        $this->dontSee($message, '.help-block');
+        $this->dontSee($message, '.invalid-feedback');
     }
 }
