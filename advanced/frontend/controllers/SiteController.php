@@ -1,4 +1,10 @@
 <?php
+/**
+ *  Team: 404NotFound
+ *  Coding by Que MingKai 2012411
+ *            2023/2/2
+ *  frontend page
+ */
 
 namespace frontend\controllers;
 
@@ -75,7 +81,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        //return $this->render('index');
+        return $this->renderpartial('index');
     }
 
     /**
