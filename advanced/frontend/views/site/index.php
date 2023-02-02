@@ -3,7 +3,7 @@
  *  Team: 404NotFound
  *  Coding by Que MingKai 2012411
  *            2023/2/2
- *  frontend page
+ *  new frontend's index.php
  */
 
 /** @var yii\web\View $this */
@@ -796,8 +796,7 @@ $this->title = 'R-U War intergrade';
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Copyright 2019 | Designed By Distinctive Themes</p> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-
+                        <p>Copyright 2023 | Designed By Distinctive Themes and Team 404NotFound.</p> 
                     </div>
                 </div>
             </div>
