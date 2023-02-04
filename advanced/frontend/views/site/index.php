@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  Team: 404NotFound
  *  Coding by Que MingKai 2012411
@@ -146,6 +147,7 @@ $this->title = 'R-U War intergrade';
                             <li><a href="index-shop.html">Home Shop</a></li>
                             <li><a href="index-app.html">Home App Landing</a></li>
                             <li><a href="index-singlepage.html">Home Single Page</a></li>
+                            <li><a href="index-map.html">Home Map</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -327,7 +329,6 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
     <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
-
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -630,6 +631,28 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
+    <!-- 添加了俄乌战争战线图（直接调用其他网站）-->
+    <section id="ua-map" class="white section-wrapper">
+        <div class="section-inner nopaddingbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading"><strong>Russia-ukraine War</strong> Front Map</h2>
+                        <h3 class="section-subheading text-muted">Map of the Russian-Ukrainian war front.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="ua-war-data">
+        <div class="nopadding">
+            <div>
+            <iframe src="https://www.uawardata.com/" name="ifd" height="100%" width="100%" scrolling="no" frameborder="0">
+            </iframe>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="white section-wrapper">
         <div class="section-inner nopaddingbottom">
             <div class="container">
@@ -642,8 +665,6 @@ $this->title = 'R-U War intergrade';
             </div>
         </div>
     </section>
-
-
 
     <section id="contact-lower" class="white section-wrapper">
         <div class="section-inner">
@@ -699,6 +720,7 @@ $this->title = 'R-U War intergrade';
             </div>
         </div>
     </section>
+
 
     <footer id="footerwrap">
         <div class="section-inner">
@@ -796,7 +818,7 @@ $this->title = 'R-U War intergrade';
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Copyright 2023 | Designed By Distinctive Themes and Team 404NotFound.</p> 
+                        <p>Copyright 2023 | Designed By Distinctive Themes and Team 404NotFound.</p>
                     </div>
                 </div>
             </div>
