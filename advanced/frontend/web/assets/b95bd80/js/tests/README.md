@@ -26,7 +26,7 @@ To run the unit test suite via [Karma](https://karma-runner.github.io/) and debu
 
 ## Code coverage
 
-Currently we're aiming for at least 90% test coverage for our code. To ensure your changes meet or exceed this limit, run `npm run js-test-karma` and open the file in `js/coverage/lcov-report/index.html` to see the code coverage for each plugin. See more details when you select a plugin and ensure your change is fully covered by unit tests.
+Currently we're aiming for at least 90% test coverage for our code. To ensure your changes meet or exceed this limit, run `npm run js-test-karma` and open the file in `js/coverage/lcov-report/index.php` to see the code coverage for each plugin. See more details when you select a plugin and ensure your change is fully covered by unit tests.
 
 ### Example tests
 

@@ -10,7 +10,7 @@ thumbnail: guides/bootstrap-webpack@2x.png
 <img class="mb-4 img-fluid rounded-3" srcset="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-webpack.png, /docs/{{< param docs_version >}}/assets/img/guides/bootstrap-webpack@2x.png 2x" src="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-webpack.png" width="2000" height="1000" alt="">
 
 {{< callout >}}
-**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/webpack). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/webpack?file=index.html) for live editing.
+**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/webpack). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/webpack?file=index.php) for live editing.
 {{< /callout >}}
 
 ## Setup
@@ -50,7 +50,7 @@ We've already created the `my-project` folder and initialized npm. Now we'll als
 
 ```sh
 mkdir {dist,src,src/js,src/scss}
-touch dist/index.html src/js/main.js src/scss/styles.scss webpack.config.js
+touch dist/index.php src/js/main.js src/scss/styles.scss webpack.config.js
 ```
 
 When you're done, your complete project should look like this:
@@ -58,7 +58,7 @@ When you're done, your complete project should look like this:
 ```text
 my-project/
 ├── dist/
-│   └── index.html
+│   └── index.php
 ├── src/
 │   ├── js/
 │   │   └── main.js
@@ -94,7 +94,7 @@ With dependencies installed and our project folder ready for us to start coding,
    }
    ```
 
-2. **Next we fill in our `dist/index.html`.** This is the HTML page Webpack will load in the browser to utilize the bundled CSS and JS we'll add to it in later steps. Before we can do that, we have to give it something to render and include the `output` JS from the previous step.
+2. **Next we fill in our `dist/index.php`.** This is the HTML page Webpack will load in the browser to utilize the bundled CSS and JS we'll add to it in later steps. Before we can do that, we have to give it something to render and include the `output` JS from the previous step.
 
    ```html
    <!doctype html>
@@ -236,9 +236,9 @@ Depending on your setup, you may want to implement some additional security and 
 
 ### Extracting CSS
 
-The `style-loader` we configured above conveniently emits CSS into the bundle so that manually loading a CSS file in `dist/index.html` isn't necessary. This approach may not work with a strict Content Security Policy, however, and it may become a bottleneck in your application due to the large bundle size.
+The `style-loader` we configured above conveniently emits CSS into the bundle so that manually loading a CSS file in `dist/index.php` isn't necessary. This approach may not work with a strict Content Security Policy, however, and it may become a bottleneck in your application due to the large bundle size.
 
-To separate the CSS so that we can load it directly from `dist/index.html`, use the `mini-css-extract-loader` Webpack plugin.
+To separate the CSS so that we can load it directly from `dist/index.php`, use the `mini-css-extract-loader` Webpack plugin.
 
 First, install the plugin:
 
@@ -274,11 +274,11 @@ Then instantiate and use the plugin in the Webpack configuration:
            {
 ```
 
-After running `npm run build` again, there will be a new file `dist/main.css`, which will contain all of the CSS imported by `src/js/main.js`. If you view `dist/index.html` in your browser now, the style will be missing, as it is now in `dist/main.css`. You can include the generated CSS in `dist/index.html` like this:
+After running `npm run build` again, there will be a new file `dist/main.css`, which will contain all of the CSS imported by `src/js/main.js`. If you view `dist/index.php` in your browser now, the style will be missing, as it is now in `dist/main.css`. You can include the generated CSS in `dist/index.php` like this:
 
 ```diff
---- a/webpack/dist/index.html
-+++ b/webpack/dist/index.html
+--- a/webpack/dist/index.php
++++ b/webpack/dist/index.php
 @@ -3,6 +3,7 @@
    <head>
      <meta charset="utf-8">

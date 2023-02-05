@@ -10,7 +10,7 @@ thumbnail: guides/bootstrap-parcel@2x.png
 <img class="mb-4 img-fluid rounded-3" srcset="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-parcel.png, /docs/{{< param docs_version >}}/assets/img/guides/bootstrap-parcel@2x.png 2x" src="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-parcel.png" width="2000" height="1000" alt="">
 
 {{< callout >}}
-**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/parcel). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/parcel?file=index.html) but not run it because Parcel isn't currently supported there.
+**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/parcel). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/parcel?file=index.php) but not run it because Parcel isn't currently supported there.
 {{< /callout >}}
 
 ## Setup
@@ -44,7 +44,7 @@ We've already created the `my-project` folder and initialized npm. Now we'll als
 
 ```sh
 mkdir {src,src/js,src/scss}
-touch src/index.html src/js/main.js src/scss/styles.scss
+touch src/index.php src/js/main.js src/scss/styles.scss
 ```
 
 When you're done, your complete project should look like this:
@@ -56,7 +56,7 @@ my-project/
 │   │   └── main.js
 │   ├── scss/
 │   │   └── styles.scss
-│   └── index.html
+│   └── index.php
 ├── package-lock.json
 └── package.json
 ```
@@ -67,7 +67,7 @@ At this point, everything is in the right place, but Parcel needs an HTML page a
 
 With dependencies installed and our project folder ready for us to start coding, we can now configure Parcel and run our project locally. Parcel itself requires no configuration file by design, but we do need an npm script and an HTML file to start our server.
 
-1. **Fill in the `src/index.html` file.** Parcel needs a page to render, so we use our `index.html` page to set up some basic HTML, including our CSS and JavaScript files.
+1. **Fill in the `src/index.php` file.** Parcel needs a page to render, so we use our `index.php` page to set up some basic HTML, including our CSS and JavaScript files.
 
    ```html
    <!doctype html>
@@ -98,7 +98,7 @@ With dependencies installed and our project folder ready for us to start coding,
    {
       // ...
       "scripts": {
-        "start": "parcel serve src/index.html --public-url / --dist-dir dist",
+        "start": "parcel serve src/index.php --public-url / --dist-dir dist",
         "test": "echo \"Error: no test specified\" && exit 1"
       },
       // ...

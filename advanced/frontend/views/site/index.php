@@ -154,7 +154,7 @@ $this->title = 'R-U War intergrade';
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="pe-7s-angle-down"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="category-grid.html">Category Grid</a></li>
-                            <li><a href="category-traditional.html">Category Traditional</a></li>
+                            <li><a href="index.php?r=ru-news">Category Traditional</a></li>
                             <li><a href="single-post.html">Single Post</a></li>
                             <li><a href="single-post-fullwidth.html">Single Post Fullwidth</a></li>
                             <li><a href="single-post-sidebar.html">Single Post Sidebar</a></li>

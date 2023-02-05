@@ -69,7 +69,7 @@ for (const file of imgFiles) {
   sh.cp('-f', `${docsDir}/assets/brand/${file}`, `${distFolder}/assets/brand/`)
 }
 
-sh.rm(`${distFolder}/index.html`)
+sh.rm(`${distFolder}/index.php`)
 
 // get all examples' HTML files
 for (const file of sh.find(`${distFolder}/**/*.html`)) {

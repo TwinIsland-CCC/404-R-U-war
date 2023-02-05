@@ -10,7 +10,7 @@ thumbnail: guides/bootstrap-vite@2x.png
 <img class="mb-4 img-fluid rounded-3" srcset="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-vite.png, /docs/{{< param docs_version >}}/assets/img/guides/bootstrap-vite@2x.png 2x" src="/docs/{{< param docs_version >}}/assets/img/guides/bootstrap-vite.png" width="2000" height="1000" alt="">
 
 {{< callout >}}
-**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/vite). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/vite?file=index.html) for live editing.
+**Want to skip to the end?** Download the source code and working demo for this guide from the [twbs/examples repository](https://github.com/twbs/examples/tree/main/vite). You can also [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/vite?file=index.php) for live editing.
 {{< /callout >}}
 
 ## Setup
@@ -49,7 +49,7 @@ We've already created the `my-project` folder and initialized npm. Now we'll als
 
 ```sh
 mkdir {src,src/js,src/scss}
-touch src/index.html src/js/main.js src/scss/styles.scss vite.config.js
+touch src/index.php src/js/main.js src/scss/styles.scss vite.config.js
 ```
 
 When you're done, your complete project should look like this:
@@ -61,7 +61,7 @@ my-project/
 │   │   └── main.js
 │   └── scss/
 │   |   └── styles.scss
-|   └── index.html
+|   └── index.php
 ├── package-lock.json
 ├── package.json
 └── vite.config.js
@@ -88,7 +88,7 @@ With dependencies installed and our project folder ready for us to start coding,
    }
    ```
 
-2. **Next we fill in `src/index.html`.** This is the HTML page Vite will load in the browser to utilize the bundled CSS and JS we'll add to it in later steps.
+2. **Next we fill in `src/index.php`.** This is the HTML page Vite will load in the browser to utilize the bundled CSS and JS we'll add to it in later steps.
 
    ```html
    <!doctype html>
