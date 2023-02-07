@@ -87,6 +87,7 @@ use frontend\models\RuNews;
     <link href="assets/css/pe-icons.css" rel="stylesheet">
     <link href="assets/css/animate.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/timeline.css"rel="stylesheet">
 
     <script src="assets/js/jquery.min.js"></script>
 
@@ -327,6 +328,53 @@ use frontend\models\RuNews;
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 添加了俄乌战争时间线-->
+    <section id="timeline" class="timeline-outer">
+        <div class="container" id="content">
+        <div class="row">
+            <div class="col s12 m12 l12">
+            <h2 class="section-heading"><strong>Timeline</strong> Of the Russian-Ukrainian war</h2>
+            <ul class="timeline">
+                <li class="event" data-date="2014/4">
+                <h3>War in Donbass</h3>
+                <p>
+                    In 2014, pro-Russian forces in Ukraine's Donbas region divided and held independence referendums modeled on Crimea, establishing the Donetsk and Lugans republics, respectively.Then in April 2014, the war in Donbass broke out.
+                </p>
+                </li>
+                <li class="event" data-date="2015/2">
+                <h3>Minsk Agreements</h3>
+                <p>
+                    After the Minsk Agreement in February 2015 and the ceasefire settlement, the region was effectively freed from Ukrainian control, became autonomous, and moved politically closer to Russia.
+                </p>
+                </li>
+                <li class="event" data-date="2018/11">
+                <h3>Kerch Strait conflict</h3>
+                <p>On November 25, 2018, three warships, the Ukrainian naval vessels Berdyansk, Nikopol and Yanekab, crossed the Russian border and sailed towards the Kerch Strait. During the standoff, Russian ships opened fire on Ukrainian warships and seized three Ukrainian warships that had intruded into the area. In addition, a criminal case has been opened in accordance with Article 322, Part 3 of the Criminal Code of the Russian Federation (illegal crossing of the state border).
+                </p>
+                </li>
+                <li class="event" data-date="2021/2022">
+                <h3>On the eve of the Russian-Ukrainian war</h3>
+                <p>2021.3 Ukraine passed a military service bill that allows the armed forces to directly recruit reservists to participate in military operations under exceptional circumstances without a presidential mobilization order.</p>
+                <p>2021.4  Russia increased its troops to the Russian-Ukrainian border.</p>
+                <p>2021.11  NATO held a meeting to discuss the possibility of a Russian invasion of Ukraine.</p>
+                <p>2022.1.24  the evacuation of family members of U.S. diplomats began. Western countries then announced the withdrawal of diplomats and their families.</p>
+                <p>2022.1.26  Russia, Ukraine, Germany and France held talks on the "Normandy format" in Paris.</p>
+                <p>2022.2.14  The U.S. Embassy is closed. And Western media and officials said that Russia will invade Ukraine on February 16.</p>
+                <p>2022.2.19  Russia conducts nuclear drills.</p>
+                <p>2022.2.21  Putin called a meeting and livestreamed it and recognized the legitimacy of the Udon.</p>
+                <p>2022.2.22  Russia announced that it recognizes the borders defined by the Donetsk and Lugans republics and will provide them with military assistance.</p>
+                    
+                </li>
+                <li class="event" data-date="2022/2/24">
+                <h3>The Russian-Ukrainian conflict officially breaks out</h3>
+                <p>On the same day, Ukraine announces the closure of the national airspace and the severance of diplomatic relations with Russia, and President Zelensky states that Ukraine is in a state of war. On the same day, Russian troops shelled troops in eastern Ukraine, military command centres in other regions and airports.</p>
+                </li>
+            </ul>
+            </div>
+        </div>
         </div>
     </section>
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
