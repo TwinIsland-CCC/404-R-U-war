@@ -10,6 +10,7 @@
 /** @var yii\web\View $this */
 
 $this->title = 'R-U War intergrade';
+use frontend\models\RuNews;
 ?>
 
 <!--
@@ -328,7 +329,6 @@ $this->title = 'R-U War intergrade';
             </div>
         </div>
     </section>
-    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -561,73 +561,61 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    <section class="white halfcreen big-carousel">
+    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner nopaddingbottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading"><strong>Blog</strong> Posts</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading"><strong>Russian-Ukraine War News</strong> Posts</h2>
+                        <h3 class="section-subheading text-muted">Click these images to reach latest news.</h3>
                     </div>
                 </div>
             </div>
             <ul class="owl-carousel-paged owl-controls-inside list-unstyled wow fadeInUp" data-items="3" data-items-tablet="[768,2]" data-items-mobile="[479,1]">
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio9.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>Tall Tales</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio8.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>A Crime Story</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio7.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>Broken Truth Will Out</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio6.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>An Amazing Day</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio5.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>City Of Hope</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
+                <?php
+                    $model = RuNews::findBySql('select * from ru_news')->all();
+                    $i = 0;
+                    foreach($model as $item){
+                        echo (
+                            '<li class="portfolio-item">');
+                        echo (
+                                '<figure class="hover-item">');
+                        echo (sprintf(
+                                    '<img src="assets/img/news/%s/%s-9.jpg" class="img-responsive" alt="image">', $item->img_path, $item->img_path));
+                        echo (sprintf(
+                                    '<figcaption>
+                                        <h2>%s</h2>
+                                        <p class="icon-links">
+                                            <a href="https://www.nytimes.com/%s"><span class="fa fa-link"></span></a>
+                                        </p>
+                                    </figcaption>
+                                </figure>', $item->title, $item->url));
+                        if(++$i >= 5) break;
+                    }
+                ?>
             </ul>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">
+                            <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
+                        </h2>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        
+    </section>
+
+    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
+        <div class="section-inner">
+            <div class="container">
+                <div class="col-lg-12 wow fadeInDown" >
+                    <h2 class="section-heading">
+                        <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
+                    </h2>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -653,7 +641,7 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    <section id="contact" class="white section-wrapper">
+    <section id="contact-lower" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
         <div class="section-inner nopaddingbottom">
             <div class="container">
                 <div class="row">
@@ -664,9 +652,6 @@ $this->title = 'R-U War intergrade';
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="contact-lower" class="white section-wrapper">
         <div class="section-inner">
             <div class="container">
                 <div class="row">
