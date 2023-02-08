@@ -462,7 +462,7 @@ if(Yii::$app->session->hasFlash('success_save'))
                 <div class="cbp-item weapons-loss " id="l">
                     <div class="row1">
                         <div class="item">
-                            <div id="echarts3" style="width:900px ; height:550px;"></div>
+                            <div id="echarts3" style="width:1000px ; height:550px;"></div>
                         </div>
                     </div>
                 </div>
