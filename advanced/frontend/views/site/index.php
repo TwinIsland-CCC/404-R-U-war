@@ -3,14 +3,23 @@
 /**
  *  Team: 404NotFound
  *  Coding by Que MingKai 2012411
+ *            Su YuJia    2011068
  *            2023/2/2
- *  new frontend's index.php
+ *  loss weapons' kind 
  */
 
 /** @var yii\web\View $this */
 
 $this->title = 'R-U War intergrade';
-?>
+
+use frontend\models\RuNews;
+use frontend\models\RCasualties;
+use frontend\models\Suggestion;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+if(Yii::$app->session->hasFlash('success_save'))
+    //echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";?>
 
 <!--
 <div class="site-index">
@@ -376,7 +385,6 @@ $this->title = 'R-U War intergrade';
         </div>
         </div>
     </section>
-    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -413,161 +421,55 @@ $this->title = 'R-U War intergrade';
             </div>
         </div>
     </section>
-
+    
+    <!--战争损失图 使用echarts-->
     <section class="white section-wrapper">
         <div class="section-inner nopaddingbottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading"><strong>Our</strong> Works</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading">War<strong>Losses</strong> </h2>
+                        <h3 class="section-subheading text-muted">Loss of personnel and weapons caused by war.</h3>
                     </div>
                 </div>
             </div>
             <div id="filters-container" class="cbp-l-filters-work container">
-                <div data-filter="*" class="btn btn-theme cbp-filter-item-active cbp-filter-item">
-                    SHOW ALL
+                <div data-filter=".casualty" class="btn btn-theme cbp-filter-item-active cbp-filter-item c">
+                    casualty<span></span>
                 </div>
-                <div data-filter=".identity" class="btn btn-theme cbp-filter-item">
-                    IDENTITY
+                <div data-filter=".weapons-ratio" class="btn btn-theme cbp-filter-item r">
+                    weapons ratio
                 </div>
-                <div data-filter=".web-design" class="btn btn-theme cbp-filter-item">
-                    WEB DESIGN
-                </div>
-                <div data-filter=".graphic" class="btn btn-theme cbp-filter-item">
-                    GRAPHIC
-                </div>
-                <div data-filter=".logos" class="btn btn-theme cbp-filter-item">
-                    LOGO
+                <div data-filter=".weapons-loss" class="btn btn-theme cbp-filter-item l">
+                    weapons loss
                 </div>
             </div>
-
             <div id="grid-container" class="cbp-l-grid-work">
-
-                <figure class="cbp-item identity hover-item">
-                    <img src="assets/img/portfolio/portfolio1.jpg" alt="image">
-                    <figcaption>
-                        <h2>Full Width Slider</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio1.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project1.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project1.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item web-design hover-item">
-                    <img src="assets/img/portfolio/portfolio2.jpg" alt="image">
-                    <figcaption>
-                        <h2>3/4 Slider</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio2.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project2.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project2.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item graphic hover-item">
-                    <img src="assets/img/portfolio/portfolio3.jpg" alt="image">
-                    <figcaption>
-                        <h2>Half Slider</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio3.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project3.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project3.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item logos hover-item">
-                    <img src="assets/img/portfolio/portfolio4.jpg" alt="image">
-                    <figcaption>
-                        <h2>Full Width Video</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio4.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project4.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project4.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item identity hover-item">
-                    <img src="assets/img/portfolio/portfolio5.jpg" alt="image">
-                    <figcaption>
-                        <h2>3/4 Video</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio5.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project5.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project5.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item web-design hover-item">
-                    <img src="assets/img/portfolio/portfolio6.jpg" alt="image">
-                    <figcaption>
-                        <h2>Half Video</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio6.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project6.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project6.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item graphic hover-item">
-                    <img src="assets/img/portfolio/portfolio7.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio7.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project7.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project7.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item logos hover-item">
-                    <img src="assets/img/portfolio/portfolio8.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio8.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project8.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project8.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item web-design hover-item">
-                    <img src="assets/img/portfolio/portfolio9.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio9.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project9.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project9.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item identity hover-item">
-                    <img src="assets/img/portfolio/portfolio10.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio10.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project10.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project10.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
+                <div class="cbp-item casualty">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts1" style="width:1000px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cbp-item weapons-ratio " id="r">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts2" style="width:1000px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cbp-item weapons-loss " id="l">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts3" style="width:900px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
+    <!--     -->
     <section id="testimonies" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -609,73 +511,60 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    <section class="white halfcreen big-carousel">
+
+    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner nopaddingbottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading"><strong>Blog</strong> Posts</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading"><strong>Russian-Ukraine War News</strong> Posts</h2>
+                        <h3 class="section-subheading text-muted">Click these images to reach latest news.</h3>
                     </div>
                 </div>
             </div>
             <ul class="owl-carousel-paged owl-controls-inside list-unstyled wow fadeInUp" data-items="3" data-items-tablet="[768,2]" data-items-mobile="[479,1]">
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio9.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>Tall Tales</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio8.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>A Crime Story</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio7.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>Broken Truth Will Out</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio6.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>An Amazing Day</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio5.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>City Of Hope</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
+                <?php
+                    $model = RuNews::findBySql('select * from ru_news')->all();
+                    $i = 0;
+                    foreach($model as $item){
+                        echo (
+                            '<li class="portfolio-item">');
+                        echo (
+                                '<figure class="hover-item">');
+                        echo (sprintf(
+                                    '<img src="assets/img/news/%s/%s-9.jpg" class="img-responsive" alt="image">', $item->img_path, $item->img_path));
+                        echo (sprintf(
+                                    '<figcaption>
+                                        <h2>%s</h2>
+                                        <p class="icon-links">
+                                            <a href="https://www.nytimes.com/%s"><span class="fa fa-link"></span></a>
+                                        </p>
+                                    </figcaption>
+                                </figure>', $item->title, $item->url));
+                        if(++$i >= 5) break;
+                    }
+                ?>
             </ul>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">
+                            <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
+                        </h2>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
+        <div class="section-inner">
+            <div class="container">
+                <div class="col-lg-12 wow fadeInDown" >
+                    <h2 class="section-heading">
+                        <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
+                    </h2>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -701,35 +590,47 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    <section id="contact" class="white section-wrapper">
+    <section id="contact-lower" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
         <div class="section-inner nopaddingbottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
                         <h2 class="section-heading"><strong>Contact</strong> Us</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h3 class="section-subheading text-muted">Put forward your suggestions for our website.</h3>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="contact-lower" class="white section-wrapper">
         <div class="section-inner">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div id="message"></div>
-                        <form method="post" action="sendemail.php" id="contactform">
+                        <!--<form method="post" action="insert()" id="contactform">
                             <p><input type="text" class="form-control" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." /></p>
                             <p><input type="text" class="form-control" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." /></p>
-                            <p><input type="text" class="form-control" name="website" placeholder="Your URL *" id="website" required data-validation-required-message="Please enter your web address." /></p>
-                            <p><textarea name="comments" rows="5" class="form-control" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea></p>
-                            <input class="btn btn-theme pull-right" type="submit" name="submit" value="Submit" />
+                            <p><textarea name="suggestion" rows="5" class="form-control" id="suggestion" placeholder="Your Suggestion *" required data-validation-required-message="Please enter your suggestion."></textarea></p>
+                            <input class="btn btn-theme pull-right" type="submit" name="submit" value="Submit" onClick = "buttonClick();"/>
                         </form>
+                        -->
+                        <?php $form = ActiveForm::begin(); ?>
+
+                            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+                            <?= $form->field($model, 'email') ?>
+
+                            <?= $form->field($model, 'suggestion')->textarea(['row'=>'6']) ?>
+
+                            <div class="form-group">
+                                <?= Html::resetButton(Yii::t('app','Reset' ), ['class' =>'btn btn-theme pull-left']) ?>
+                                <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-theme pull-right']) ?>
+
+                            </div>
+
+                        <?php ActiveForm::end(); ?>
                     </div>
-                    <div class="col-md-6">
-                        <p>Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.</p>
+                    <div class="col-md-6" style="margin-top:20px;">
+                        <p>The information displayed on the website comes from the Internet, and since it is difficult to find reliable information, some indicators may not reflect the real situation, but we try to select reliable sources for you.If you find errors in the information on the website or have any comments, you can contact us.</p>
                         <p>Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.</p>
                     </div>
                 </div>
@@ -881,4 +782,415 @@ $this->title = 'R-U War intergrade';
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/cubeportfolio.js"></script>
     <script src="assets/js/init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+    <script type="text/javascript">
+        var i=document.getElementById('r');
+        var start=0;
+        $(".c").click(function() {
+            start=0;
+        });
+        $(".r").click(function() {
+            i.style.display="block";
+            start=0;
+        });
+        i.style.display="none";
+        var j=document.getElementById('l');
+        $(".l").click(function() {
+            j.style.display="block";
+            start=1;
+        });
+        j.style.display="none";
+        j.parentElement.parentElement.style.height="530px";
+
+    </script>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('echarts1'));
+        const days = [
+            '1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12',
+            '13', '14', '15', '16', '17', '18','19', '20', '21', '22', '23', '24',
+            '25', '26', '27', '28', '29', '30', '31'
+        ];
+        // prettier-ignore
+        const months = [
+            'March', 'April', 'May','June', 'July', 
+            'August', 'September', 'October', 'November', 'December'
+        ];
+        // prettier-ignore
+        const data1 = [
+        <?php 
+            $model=RCasualties::findBySql('select * from r_casualties where time<"2023-01-01" order by time asc;')->all();
+            $index=0;
+            $pre=0;
+            foreach($model as $item){
+                $month=intval(substr(strval(($item->time)),5,2))-3;
+                $day=intval(substr(strval(($item->time)),8,2))-1;
+                $increase=$item->num-$pre;
+                echo ('['.$month.','.$day.','.$increase.'],');  
+                $pre=$item->num;
+                if($month==1 && $month==3 && $month==6 && $month==8){
+                    if($day==29){
+                        echo '['.$month.',30,0],';
+
+                    }
+                }
+            }
+        ?>]
+        .map(function (item) {
+            return [item[1], item[0], item[2] || '-'];
+        });
+        var option1 = {
+            title: {
+                text: 'Daily Casualties',
+                left: '43%',
+                fontSize: 35,
+                fontStyle:'bold'
+            },
+            tooltip: {
+                position: 'top'
+            },
+             dataZoom: [{
+                 type: 'inside'
+             }],
+            grid: {
+                height: '72%',
+                width: '85%',
+                top: '10%'
+            },
+            xAxis: {
+                type: 'category',
+                data: days,
+                splitArea: {
+                    show: true
+                }
+            },
+            yAxis: {
+                type: 'category',
+                data: months,
+                splitArea: {
+                    show: true
+                }
+            },
+            visualMap: {
+                min: 0,
+                max: 1000,
+                calculable: true,
+                orient: 'horizontal',
+                left: 'center',
+                bottom: '7%',
+                inRange: {
+                    color: ['#D9E9FF', "#0B69E3"]
+                }
+            },
+            series: [
+                {
+                    name: 'Casualties Num',
+                    type: 'heatmap',
+                    data: data1,
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option1);
+
+    </script>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart2 = echarts.init(document.getElementById('echarts2'));
+      $.getJSON('assets/data/echarts2.json', function(data){
+        var result = [];
+        var result1 = [];
+        var name = [];
+        var name1 = [];
+        $.each(data, function(i,item){
+            var j=0;
+            var flag=0;
+            result1[i]={'name':item.armsname,'value':item.num};
+            name1[i]=item.armsname;
+
+            if(i==0){
+                result.push({'name':item.category,'value':item.num})
+                name[0]=item.category;
+            }
+            else{
+                while(j!=result.length) {
+                    if(result[j]['name']==item.category) {
+                        result[j]['value']+=item.num;
+                        flag=1;
+                        break;
+                    }
+                    j+=1;
+                }
+                if(flag==0){
+                    result.push({'name':item.category,'value':item.num});
+                    name[j]=item.category;
+                }
+            }
+        });
+        //alert(name.length);
+        var option2 = {
+            title: {
+                text: 'The Proportion Of Weapons In The War',
+                left: '34%',
+                fontSize: 35,
+                fontStyle:'bold'
+            },
+            legend: [
+                {
+                    orient: 'vertical',
+                    left: '0%',
+                    top: '5%',
+                    textStyle: {
+                        fontSize: 14
+                    },
+                    data:name
+                },
+                {
+                    orient: 'vertical',
+                    left: '8%',
+                    top: '5%',
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    data:name1
+                }
+            ],
+            color: [
+                '#988D80',
+                '#7F4620',
+                '#624F40',
+                '#223B3A',
+                '#532B23',
+                '#505B59',
+                '#343231',
+                '#714641',
+                '#7289ab',
+                '#5C4F43',
+                '#8E5118',
+                '#998A7E',
+                '#B6B6B6',
+                '#414141'
+            ],
+            series: [ 
+                {
+                    left: '20%',
+                    top: '8%',
+                    type: 'pie',
+                    radius: [0, '30%'],
+                    avoidLabelOverlap: false,
+                    selectedMode: 'single',
+                    label: {
+                        position: 'inner',
+                        fontSize: 14
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                        }
+                    },
+                    data: result
+                },
+                {
+                    left: '20%',
+                    top: '8%',
+                    type: 'pie',
+                    radius: ['50%', '85%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{b|{b}：}{c}  {per|{d}%}  ',
+                        backgroundColor: '#F6F8FC',
+                        borderColor: '#8C8D8E',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        rich: {
+                            hr: {
+                                borderColor: '#8C8D8E',
+                                width: '100%',
+                                borderWidth: 1,
+                                height: 0
+                            },
+                            b: {
+                                color: '#4C5058',
+                                fontSize: 12,
+                                fontWeight: 'bold',
+                                lineHeight: 32
+                            },
+                            per: {
+                                color: '#fff',
+                                backgroundColor: '#4C5058',
+                                padding: [3, 4],
+                                fontSize: 12,
+                                borderRadius: 4
+                            }
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                        }
+                    },
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: result1
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+      });
+    </script>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('echarts3'));
+        // 指定图表的配置项和数据
+        var result = [];
+        var data = [];
+        $.getJSON('assets/data/echarts3.json', function(data1){
+            $.each(data1, function(i,item){
+                result[i]={'name':item.armsname,'value':item.num,'time':item.time};
+            });
+            var category_num = 0;
+            while(result[category_num]['time']==result[0]['time'])
+                category_num += 1;
+            var index = 0;
+            for(;index<category_num;index++){
+                data[index]=[result[index]['value'],result[index]['name']];
+            }
+            var time = result[0]['time'].replace('-','.');
+            time = time.substr(0,7);
+            const weaponColors = {
+                '坦克': '#6B2B1F',
+                '飞机': '#414141',
+                '无人机': '#314947',
+                '直升机': '#7F4723',
+                '枪支': '#8C8F8D',
+                '火箭炮': '#4D4732',
+                '防空系统': '#20231B',
+                '船只': '#224161',
+                '汽车和油罐车': '#99826B',
+                '巡航导弹': '#988658',
+            };
+            var option3 = {
+                title: {
+                    text: 'Number Of Weapon Losses',
+                    left: '40%',
+                    fontSize: 35,
+                    fontStyle:'bold'
+                },
+                xAxis: {
+                    max: 'dataMax',
+                },
+                grid: {
+                    top: 30,
+                    bottom: 30,
+                    left: 150,
+                    right: 80
+                },
+                yAxis: {
+                    type: 'category',
+                    inverse: true,
+                    animationDuration: 300,
+                    animationDurationUpdate: 300,
+                    max: 9, // only the largest 3 bars will be displayed
+                    rich: {
+                        flag: {
+                            fontSize: 25,
+                            padding: 5
+                        }
+                    }
+                },
+                series: [
+                {
+                    realtimeSort: true,
+                    top: '10%',
+                    type: 'bar',
+                    data: data,
+                    seriesLayoutBy: 'column',
+                    itemStyle: {
+                        color: function (param) {
+                            return weaponColors[param.value[1]]||'#5470c6';
+                        }
+                    },
+                    encode: { 
+                        x: 0, 
+                        y: 3, 
+                    },
+                    label: {
+                        show: true,
+                        precision: 0,
+                        position: 'right',
+                        valueAnimation: true,
+                        fontFamily: 'monospace'
+                    }
+                }
+                ],
+                animationDuration: 3000,
+                animationDurationUpdate: 3000,
+                animationEasing: 'linear',
+                animationEasingUpdate: 'linear',
+                graphic: {
+                  elements: [
+                      {
+                          type: 'text',
+                          right: 0,
+                          bottom: 60,
+                          style: {
+                              text: time.toString(),
+                              font: 'bolder 80px monospace',
+                              fill: 'rgba(100, 100, 100, 0.25)'
+                          },
+                          z: 100
+                      }
+                  ]
+              }
+            };
+            function update() {
+                if(start==1){
+                var data = option3.series[0].data;
+                if(index==result.length)
+                    return;
+                for (var i = 0; i < category_num; ++i) {
+                    //data[i]['name']=result[index+i]['name'];
+                    //data[i]['value']=result[index+i]['value'];
+                    data[i]=[result[index+i]['value'],result[index+i]['name']];
+                }
+                time = result[index]['time'].replace('-','.');
+                time = time.substr(0,7);
+                index += category_num;
+                option3.series[0].data=data;
+                option3.graphic.elements[0].style.text = time;
+                myChart3.setOption(option3);
+            }
+            }
+            setInterval(function() { update();}, 100);
+            // 使用刚指定的配置项和数据显示图表。
+            myChart3.setOption(option3);
+        });
+    </script>
 </body>
