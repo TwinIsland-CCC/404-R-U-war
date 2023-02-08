@@ -4104,7 +4104,7 @@ from {
 
 .cbp-l-grid-work .cbp-item {
   padding:0;
-  width:1200px !important;
+  width:100% !important;
   display:block;
 }
 .cbp-item .row1{
