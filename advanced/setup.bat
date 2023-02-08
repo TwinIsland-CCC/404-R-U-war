@@ -13,7 +13,7 @@ set "OldStr=%~dp0"
 set "NewStr=%OldStr:\=/%"
 set "main-local=%NewStr%common/config/main-local.php"
 
-set "dbname=nku1"
+set "dbname=ru_war"
 
 
 set /p password=请输入数据库root用户的密码:
