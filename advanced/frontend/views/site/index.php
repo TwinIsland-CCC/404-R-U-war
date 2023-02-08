@@ -428,7 +428,7 @@ if(Yii::$app->session->hasFlash('success_save'))
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading">War<strong>Losses</strong> </h2>
+                        <h2 class="section-heading">War <strong>Losses</strong> </h2>
                         <h3 class="section-subheading text-muted">Loss of personnel and weapons caused by war.</h3>
                     </div>
                 </div>
@@ -524,9 +524,9 @@ if(Yii::$app->session->hasFlash('success_save'))
             </div>
             <ul class="owl-carousel-paged owl-controls-inside list-unstyled wow fadeInUp" data-items="3" data-items-tablet="[768,2]" data-items-mobile="[479,1]">
                 <?php
-                    $model = RuNews::findBySql('select * from ru_news')->all();
+                    $map_model = RuNews::findBySql('select * from ru_news')->all();
                     $i = 0;
-                    foreach($model as $item){
+                    foreach($map_model as $item){
                         echo (
                             '<li class="portfolio-item">');
                         echo (
@@ -555,6 +555,7 @@ if(Yii::$app->session->hasFlash('success_save'))
                 </div>
             </div> -->
         </div>
+    </section>
 
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner">
@@ -600,12 +601,9 @@ if(Yii::$app->session->hasFlash('success_save'))
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section-inner">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="message"></div>
                         <!--<form method="post" action="insert()" id="contactform">
                             <p><input type="text" class="form-control" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." /></p>
                             <p><input type="text" class="form-control" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." /></p>
