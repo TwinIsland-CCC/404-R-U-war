@@ -1,13 +1,11 @@
 <?php
-/** 
-* Team: 404NotFound 
-* Coding by Luo Xinke 2013622 
-*           2023/2/7 
-* Russian-Ukraine War Weapons manufacturing companies
-*/ 
-
-
-namespace frontend\Controllers;
+/**
+ *  Team: 404NotFound
+ *  Coding by Luo XinKe 2013622
+ *            2023/2/8
+ *  Russia-Ukraine war weapons display
+ */
+namespace frontend\controllers;
 
 use frontend\models\WeaponsCompany3;
 use frontend\models\WeaponsCompany3Search;

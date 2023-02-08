@@ -1,18 +1,16 @@
 <?php
-/** 
-* Team: 404NotFound 
-* Coding by Luo Xinke 2013622 
-*           2023/2/7 
-* Russian-Ukraine War Weapons manufacturing companies
-*/ 
-
-
+/**
+ *  Team: 404NotFound
+ *  Coding by Luo XinKe 2013622
+ *            2023/2/8
+ *  Russia-Ukraine war weapons display
+ */
 namespace frontend\models;
 
 use Yii;
 
 /**
- * This is the model class for table "{{%weapons_company3}}".
+ * This is the model class for table "weapons_company3".
  *
  * @property string $E_name
  * @property string $url
@@ -25,7 +23,7 @@ class WeaponsCompany3 extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%weapons_company3}}';
+        return 'weapons_company3';
     }
 
     /**
@@ -51,5 +49,14 @@ class WeaponsCompany3 extends \yii\db\ActiveRecord
             'url' => 'Url',
             'C_name' => 'C Name',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return WeaponsCompany3Query the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new WeaponsCompany3Query(get_called_class());
     }
 }

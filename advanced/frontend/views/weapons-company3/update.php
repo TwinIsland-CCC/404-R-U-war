@@ -1,13 +1,10 @@
 <?php
-
-/** 
-* Team: 404NotFound 
-* Coding by Luo Xinke 2013622 
-*           2023/2/7 
-* Russian-Ukraine War Weapons manufacturing companies
-*/ 
-
-
+/**
+ *  Team: 404NotFound
+ *  Coding by Luo XinKe 2013622
+ *            2023/2/8
+ *  Russia-Ukraine war weapons display
+ */
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */

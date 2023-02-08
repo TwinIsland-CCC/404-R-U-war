@@ -9,7 +9,19 @@
 
 /** @var yii\web\View $this */
 
+/**
+ *  Team: 404NotFound
+ *  Coding by Luo XinKe 2013622
+ *            2023/2/8
+ *  Russia-Ukraine war weapons display
+ */
+
+
+use frontend\models\Weapons;
 $this->title = 'R-U War intergrade';
+
+
+
 ?>
 
 <!--
@@ -102,6 +114,7 @@ $this->title = 'R-U War intergrade';
             });
         });
     </script>
+
 </head>
 
 <body>
@@ -366,159 +379,6 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    <section class="white section-wrapper">
-        <div class="section-inner nopaddingbottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading"><strong>Our</strong> Works</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                    </div>
-                </div>
-            </div>
-            <div id="filters-container" class="cbp-l-filters-work container">
-                <div data-filter="*" class="btn btn-theme cbp-filter-item-active cbp-filter-item">
-                    SHOW ALL
-                </div>
-                <div data-filter=".identity" class="btn btn-theme cbp-filter-item">
-                    IDENTITY
-                </div>
-                <div data-filter=".web-design" class="btn btn-theme cbp-filter-item">
-                    WEB DESIGN
-                </div>
-                <div data-filter=".graphic" class="btn btn-theme cbp-filter-item">
-                    GRAPHIC
-                </div>
-                <div data-filter=".logos" class="btn btn-theme cbp-filter-item">
-                    LOGO
-                </div>
-            </div>
-
-            <div id="grid-container" class="cbp-l-grid-work">
-
-                <figure class="cbp-item identity hover-item">
-                    <img src="assets/img/portfolio/portfolio1.jpg" alt="image">
-                    <figcaption>
-                        <h2>Full Width Slider</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio1.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project1.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project1.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item web-design hover-item">
-                    <img src="assets/img/portfolio/portfolio2.jpg" alt="image">
-                    <figcaption>
-                        <h2>3/4 Slider</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio2.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project2.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project2.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item graphic hover-item">
-                    <img src="assets/img/portfolio/portfolio3.jpg" alt="image">
-                    <figcaption>
-                        <h2>Half Slider</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio3.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project3.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project3.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item logos hover-item">
-                    <img src="assets/img/portfolio/portfolio4.jpg" alt="image">
-                    <figcaption>
-                        <h2>Full Width Video</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio4.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project4.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project4.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item identity hover-item">
-                    <img src="assets/img/portfolio/portfolio5.jpg" alt="image">
-                    <figcaption>
-                        <h2>3/4 Video</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio5.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project5.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project5.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item web-design hover-item">
-                    <img src="assets/img/portfolio/portfolio6.jpg" alt="image">
-                    <figcaption>
-                        <h2>Half Video</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio6.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project6.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project6.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item graphic hover-item">
-                    <img src="assets/img/portfolio/portfolio7.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio7.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project7.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project7.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item logos hover-item">
-                    <img src="assets/img/portfolio/portfolio8.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio8.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project8.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project8.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item web-design hover-item">
-                    <img src="assets/img/portfolio/portfolio9.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio9.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project9.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project9.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item identity hover-item">
-                    <img src="assets/img/portfolio/portfolio10.jpg" alt="image">
-                    <figcaption>
-                        <h2>Portfolio Item</h2>
-                        <p class="icon-links">
-                            <a href="assets/img/portfolio/portfolio10.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="projects/project10.html" class="cbp-singlePageInline"><span class="fa fa-info"></span></a>
-                            <a href="projects/project10.html" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-            </div>
-        </div>
-    </section>
 
 
     <!-- 武器展示 -->
@@ -571,20 +431,25 @@ $this->title = 'R-U War intergrade';
                                     </div>
                                 </div>
                             </li>
+
+
                             <li>
                                 <div class="row">
                                     <div class="col-xs-8">
                                         <img src="assets/img/weapons/1845482.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="col-xs-4 item-caption">
-                                        <p>the Submachine Carbine being the old British English term for a submachine gun, not the Submachine Gun as used in American English. 
-                                            The British have now accepted the name SMG, but India, after all, considers their English to be the most authentic.
-                                            The MSMC is very similar to the HK MP7 in that it is a PDW that fires a dedicated small calibre, high velocity round, 
-                                            with a shorter cartridge size so that the magazine can be inserted into the grip and the recoil is lower, making it easier 
-                                            to control firing from such a light and small weapon, although the higher muzzle velocity and pointed rounds can also be used 
-                                            against normal body armour. However, although the concept of the MSMC is the same as that of the MP7, 
-                                            the MSMC is very much like the Russian SR-2 (which is actually the same concept as the MP7, except that it fires 9mm special 
-                                            armour-piercing ammunition).Translated with www.DeepL.com/Translator (free version)</p>
+                                        <p>
+                                        The MSMC submachine gun fires the 5.56×30mm cartridge, which has better penetration than the 9×19mm. 
+                                        The calibre is said to be made from a shortened case of 5.56×45 NATO ammunition, which is 42mm long, 
+                                        weighs 6g overall, has a 17mm long bullet with a 2.6 gram tip, and has a muzzle velocity of 650m/s fired 
+                                        from a 300mm barrel. It uses the guided automatic principle, with the ability to select semi-automatic or 
+                                        fully automatic firing modes, a large grip guard (the early prototypes had a small traditional trigger guard), 
+                                        a pull handle and safety/quick release handle that can be operated with either the right or left hand, 
+                                        a telescopic stock to reduce the overall size of the gun, a Picatinny rail on top of the receiver for mounting 
+                                        accessories, and the published prototype fitted with the ITL fitted to the Israeli TAR-21. MARS laser 
+                                        pointer/red dot sight fitted to the Israeli TAR-21. A muzzle flamer is fitted and a silencer can be added, as well as a bayonet.
+                                        </p>
                                         <span><strong>MSMC is known as the "Modern Submachine Carbine"</strong></span>
                                     </div>
                                 </div>
@@ -615,6 +480,167 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
+    
+    <!-- 俄乌两国七种武器 -->
+    <section class="white section-wrapper">
+        <div class="section-inner nopaddingbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">Different types of <strong>light weapons</strong> </h2>
+                        <h3 class="section-subheading text-muted">Seven different types of light weapons from Russia and Ukraine.</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="filters-container" class="cbp-l-filters-work container">
+                <div data-filter=".a" class="btn btn-theme cbp-filter-item">
+                    Rifles
+                </div>
+                <div data-filter=".b" class="btn btn-theme cbp-filter-item">
+                    Machine guns
+                </div>
+                <div data-filter=".c" class="btn btn-theme cbp-filter-item">
+                    Sniper Rifles
+                </div>
+                <div data-filter=".d" class="btn btn-theme cbp-filter-item">
+                    Submachine guns
+                </div>
+                <div data-filter=".e" class="btn btn-theme cbp-filter-item">
+                    Pistols
+                </div>
+                <div data-filter=".f" class="btn btn-theme cbp-filter-item">
+                    Shotguns
+                </div>
+                <div data-filter=".g" class="btn btn-theme cbp-filter-item">
+                    Other support weapons
+                </div>
+                <div data-filter="*" class="btn btn-theme cbp-filter-item-active cbp-filter-item">
+                    All weapons
+                </div>
+            </div>
+
+            <div id="grid-container" class="cbp-l-grid-work">
+
+
+
+                <figure class="cbp-item a hover-item">
+                    <img src="assets/img/weapons/weapon1.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model1=Weapons::findBySql( 'SELECT * from weapons where kind ="1" LIMIT 1') ->all();
+                                echo ($model1->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon1.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon1.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item b hover-item">
+                    <img src="assets/img/weapons/weapon2.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model2=Weapons::findBySql( 'select * from weapons where kind ="2"')->all();
+                                echo $model2->name;
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon2.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon2.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item c hover-item">
+                    <img src="assets/img/weapons/weapon3.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model=Weapons::findBySql( 'select * from weapons where kind ="3" limit 1')->all();
+                                echo $model->name;
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon3.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon3.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item d hover-item">
+                    <img src="assets/img/weapons/weapon4.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model=Weapons::findBySql( 'select * from weapons where kind ="4" limit 1')->all();
+                                echo $model->name;
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon4.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon4.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item e hover-item">
+                    <img src="assets/img/weapons/weapon5.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model=Weapons::findBySql( 'select * from weapons where kind ="5" limit 1')->all();
+                                echo $model->name;
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon5.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon5.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item f hover-item">
+                    <img src="assets/img/weapons/weapon6.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model=Weapons::findBySql( 'select * from weapons where kind ="6" limit 1')->all();
+                                echo $model->name;
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon6.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon6.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item g hover-item">
+                    <img src="assets/img/weapons/weapon7.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model=Weapons::findBySql( 'select * from weapons where kind ="7" limit 1')->all();
+                                echo $model->name;
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon7.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon7.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+  
+            </div>
+        </div>
+    </section>
+    
+    <!-- 俄乌两国部分武器 -->
     <section class="white halfcreen big-carousel">
         <div class="section-inner nopaddingbottom">
             <div class="container">
@@ -648,6 +674,7 @@ $this->title = 'R-U War intergrade';
                         </figcaption>
                     </figure>
                 </li>
+                <li><a href="shopping-cart.html">Shopping Cart</a></li>
                 
             </ul>
         </div>
