@@ -21,6 +21,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Suggestion;
 
 /**
  * Site controller
@@ -82,7 +83,24 @@ class SiteController extends Controller
     public function actionIndex()
     {
         //return $this->render('index');
-        return $this->renderpartial('index');
+        //return $this->renderpartial('index');
+    //}
+
+    //public function actionSubmit()
+    //{
+        $model = new Suggestion();
+        $model->id=Suggestion::find()->count();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success_save', 'Thank you for your suggestion.');
+            //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
+            return $this->goHome();
+        }
+        $model->username = '';
+        $model->email = '';
+        $model->suggestion = '';
+        return $this->renderPartial('index', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -262,5 +280,14 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    /**
+     * Creates a new Message model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
     }
 }
