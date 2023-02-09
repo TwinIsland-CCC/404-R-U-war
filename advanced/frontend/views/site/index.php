@@ -4,8 +4,11 @@
  *  Team: 404NotFound
  *  Coding by Que MingKai 2012411
  *            Su YuJia    2011068
- *            2023/2/2
+ *            Luo XinKe   2013622
+ *            2023/2/8
+ *  new frontend's index.php 
  *  loss weapons' kind 
+ * Russia-Ukraine war weapons display
  */
 
 /** @var yii\web\View $this */
@@ -13,6 +16,7 @@
 $this->title = 'R-U War intergrade';
 
 use frontend\models\RuNews;
+use frontend\models\Weapons;
 use frontend\models\RCasualties;
 use frontend\models\Suggestion;
 use yii\helpers\Html;
@@ -524,9 +528,9 @@ if(Yii::$app->session->hasFlash('success_save'))
             </div>
             <ul class="owl-carousel-paged owl-controls-inside list-unstyled wow fadeInUp" data-items="3" data-items-tablet="[768,2]" data-items-mobile="[479,1]">
                 <?php
-                    $map_model = RuNews::findBySql('select * from ru_news')->all();
+                    $news_model = RuNews::findBySql('select * from ru_news')->all();
                     $i = 0;
-                    foreach($map_model as $item){
+                    foreach($news_model as $item){
                         echo (
                             '<li class="portfolio-item">');
                         echo (
@@ -565,6 +569,267 @@ if(Yii::$app->session->hasFlash('success_save'))
                         <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
                     </h2>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 武器展示 -->
+    <section id="testimonies" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
+        <div class="section-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading"><strong>Weapons</strong> display </h2>
+                        <h3 class="section-subheading text-muted">Russian-Ukrainian weapons and equipment and other light weapons.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="owl-carousel-paged testimonial-owl wow fadeInUp list-unstyled" data-items="1" data-items-tablet="[768,1]" data-items-mobile="[479,1]">
+                            
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <img src="assets/img/weapons/vj6h1.jpg" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="col-xs-4 item-caption">
+                                        <p>The Kord-5.45 (КОРД-5.45) light machine gun is a 5.45mm calibre dual mode light machine 
+                                            gun similar to the FN Minimi, which was originally developed from a requirement for a 
+                                            "5.45mm assault machine gun" issued by the Russian Ministry of the Interior (MVD) in 2011 
+                                            to provide counter-terrorism The aim was to provide special police units with a light machine 
+                                            gun that would have a longer-lasting firepower than the current 5.45mm squad light machine gun, 
+                                            known as the RPK74 series. The development project is codenamed "Tokar" (pronounced "Tokar"), 
+                                            which is Cyrillic for "Токарь", meaning "lathe worker ". The initial requirements included a chain 
+                                            fed cartridge, two rates of fire (600RPM and 900RPM were explicitly requested) and a quick barrel 
+                                            change, while the maximum empty weight could not exceed 6.5kg, although a dual feed mode was not yet required.</p>
+                                        <span><strong>The Kord-5.45 (КОРД-5.45) light machine gun</strong></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <img src="assets/img/weapons/scrshot06.jpg" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="col-xs-4 item-caption">
+                                        <p>The development of the RPL-20 was based on new requirements issued by the Russian military in mid-2020 
+                                            for a 5.45mm light machine gun, which was to be positioned as a squad support weapon, complementing 
+                                            (not replacing) the existing 7.62x54Rmm calibre PKM or PKP machine gun. These requirements were based 
+                                            on the performance of the RPK-16 light machine gun, which was then undergoing field trials, but details 
+                                            of the requirements have not been made public, but it is clear that the Russian military wanted a 5.45mm 
+                                            calibre light machine gun of a similar size and weight to the RPK-16, but with the practical rate of fire 
+                                            and sustained fire capability of a chain-fed machine gun.</p>
+                                        <span><strong>RPL-20 light machine gun (РПЛ-20)</strong></span>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <img src="assets/img/weapons/1845482.jpg" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="col-xs-4 item-caption">
+                                        <p>
+                                        The MSMC submachine gun fires the 5.56×30mm cartridge, which has better penetration than the 9×19mm. 
+                                        The calibre is said to be made from a shortened case of 5.56×45 NATO ammunition, which is 42mm long, 
+                                        weighs 6g overall, has a 17mm long bullet with a 2.6 gram tip, and has a muzzle velocity of 650m/s fired 
+                                        from a 300mm barrel. It uses the guided automatic principle, with the ability to select semi-automatic or 
+                                        fully automatic firing modes, a large grip guard (the early prototypes had a small traditional trigger guard), 
+                                        a pull handle and safety/quick release handle that can be operated with either the right or left hand, 
+                                        a telescopic stock to reduce the overall size of the gun, a Picatinny rail on top of the receiver for mounting 
+                                        accessories, and the published prototype fitted with the ITL fitted to the Israeli TAR-21. MARS laser 
+                                        pointer/red dot sight fitted to the Israeli TAR-21. A muzzle flamer is fitted and a silencer can be added, as well as a bayonet.
+                                        </p>
+                                        <span><strong>MSMC is known as the "Modern Submachine Carbine"</strong></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <img src="assets/img/weapons/pu-1.jpg" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="col-xs-4 item-caption">
+                                        <p>The PU (ПУ in Russian) is an acronym for "Uniformly Fed Machine Gun" (Пулемет с унифицированной подачей),
+                                             a project proposed in 1971 to provide the infantry squad with a light machine gun with the same sustained
+                                             firepower as the PK but with the same capacity as the AK-74 series under development. The PU project was 
+                                             developed by several Izhevsk light weapons designers responsible for the AL-7 automatic rifle 
+                                             (one of the AK-74 prototypes), including Aleksandrov (Ю.К. Александрова), Nesterov (А..I. Нестрова), 
+                                             and the AK-74. ...I. Нестеров), and Viktor Kalashnikov (В. М. Калашникова), son of AK designer Mikhail 
+                                             Kalashnikov.Translated with www.DeepL.com/Translator (free version)</p>
+                                        <span><strong>PU "Uniformly Fed Machine Gun" (Пулемет с унифицированной подачей)</strong></span>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- 俄乌两国七种武器 -->
+     <section class="white section-wrapper">
+        <div class="section-inner nopaddingbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">Different types of <strong>light weapons</strong> </h2>
+                        <h3 class="section-subheading text-muted">Seven different types of light weapons from Russia and Ukraine.</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="filters-container" class="cbp-l-filters-work container">
+                <div data-filter=".a" class="btn btn-theme cbp-filter-item">
+                    Rifles
+                </div>
+                <div data-filter=".b" class="btn btn-theme cbp-filter-item">
+                    Machine guns
+                </div>
+                <div data-filter=".c" class="btn btn-theme cbp-filter-item">
+                    Sniper Rifles
+                </div>
+                <div data-filter=".d" class="btn btn-theme cbp-filter-item">
+                    Submachine guns
+                </div>
+                <div data-filter=".e" class="btn btn-theme cbp-filter-item">
+                    Pistols
+                </div>
+                <div data-filter=".f" class="btn btn-theme cbp-filter-item">
+                    Shotguns
+                </div>
+                <div data-filter=".g" class="btn btn-theme cbp-filter-item">
+                    Other support weapons
+                </div>
+                <div data-filter="*" class="btn btn-theme cbp-filter-item-active cbp-filter-item">
+                    All weapons
+                </div>
+            </div>
+
+            <div id="grid-container" class="cbp-l-grid-work">
+                <figure class="cbp-item a hover-item">
+                    <img src="assets/img/weapons/weapon1.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model1=Weapons::findBySql( 'SELECT * from weapons where kind ="1" LIMIT 1') ->all();
+                                foreach($model1 as $item)
+                                    echo ($item->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon1.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon1.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item b hover-item">
+                    <img src="assets/img/weapons/weapon2.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model2=Weapons::findBySql( 'select * from weapons where kind ="2" LIMIT 1')->all();
+                                foreach($model2 as $item)
+                                    echo ($item->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon2.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon2.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item c hover-item">
+                    <img src="assets/img/weapons/weapon3.jpg" alt="image">
+                    <figcaption>
+                        <h2><?php
+                                $model3=Weapons::findBySql( 'select * from weapons where kind ="3" limit 1')->all();
+                                foreach($model3 as $item)
+                                    echo ($item->name);?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon3.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon3.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item d hover-item">
+                    <img src="assets/img/weapons/weapon4.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model4=Weapons::findBySql( 'select * from weapons where kind ="4" limit 1')->all();
+                                foreach($model4 as $item)
+                                    echo ($item->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon4.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon4.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item e hover-item">
+                    <img src="assets/img/weapons/weapon5.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model5=Weapons::findBySql( 'select * from weapons where kind ="5" limit 1')->all();
+                                foreach($model5 as $item)
+                                    echo ($item->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon5.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon5.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item f hover-item">
+                    <img src="assets/img/weapons/weapon6.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model6=Weapons::findBySql( 'select * from weapons where kind ="6" limit 1')->all();
+                                foreach($model6 as $item)
+                                    echo ($item->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon6.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon6.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+                <figure class="cbp-item g hover-item">
+                    <img src="assets/img/weapons/weapon7.jpg" alt="image">
+                    <figcaption>
+                        <h2>
+                            <?php
+                                $model7=Weapons::findBySql( 'select * from weapons where kind ="7" limit 1')->all();
+                                foreach($model7 as $item)
+                                    echo ($item->name);
+                            ?>
+                        </h2>
+                        <p class="icon-links">
+                            <a href="assets/img/weapons/weapon7.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                            <a href="weapons/weapon7.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+  
             </div>
         </div>
     </section>

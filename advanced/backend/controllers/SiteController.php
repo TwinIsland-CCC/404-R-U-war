@@ -80,7 +80,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        //echo "<script language=\"JavaScript\">alert(\"鐢ㄦ埛鍚嶄笉鑳戒负绌猴紒\");</script>";
+        //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -101,7 +101,7 @@ class SiteController extends Controller
 
     public function actionSignup()
     {
-        //echo "<script language=\"JavaScript\">alert(\"鐢ㄦ埛鍚嶄笉鑳戒负绌猴紒\");</script>";
+        //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
