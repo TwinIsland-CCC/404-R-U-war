@@ -159,7 +159,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="container">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="post-heading text-center mb">
-                            <h1>A More Traditional Blog Layout</h1>
+                            <h1>Russian-Ukraine War News Posts</h1>
                         </div>
                     </div>
                 </div>
@@ -227,182 +227,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/portfolio/portfolio2.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Summer Days</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Summer Days</a></h2>
-                                    <p>Scarcely on striking packages by so property in delicate. Up or well must less rent read walk so be. Easy sold at do hour sing spot. Any meant has cease too the decay. Scarcely on striking packages by so property in delicate. Up or well must less rent read walk so be. Easy sold at do hour sing spot. Any meant has cease too the decay.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog3.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Waiting For Tim</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Waiting For Tim</a></h2>
-                                    <p>Few extensive add delighted tolerably sincerity her. Law ought him least enjoy decay one quick court. Expect warmly its tended garden him esteem had remove off. Effects dearest staying now sixteen nor improve. Few extensive add delighted tolerably sincerity her. Law ought him least enjoy decay one quick court. Expect warmly its tended garden him esteem had remove off. Effects dearest staying now sixteen nor improve.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog4.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Street Crew</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Street Crew</a></h2>
-                                    <p>Guest it he tears aware as. Make my no cold of need. He been past in by my hard. Warmly thrown oh he common future. Otherwise concealed favourite frankness on be at dashwoods defective at. Sympathize interested simplicity at do projecting increasing terminated. As edward settle limits at in. Guest it he tears aware as. Make my no cold of need. He been past in by my hard. Warmly thrown oh he common future. Otherwise concealed favourite frankness on be at dashwoods defective at. Sympathize interested simplicity at do projecting increasing terminated. As edward settle limits at in.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog5.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Iced Coffee</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Iced Coffee</a></h2>
-                                    <p>Bed sudden manner indeed fat now feebly. Face do with in need of wife paid that be. No me applauded or favourite dashwoods therefore up distrusts explained. Bed sudden manner indeed fat now feebly. Face do with in need of wife paid that be. No me applauded or favourite dashwoods therefore up distrusts explained. Bed sudden manner indeed fat now feebly. Face do with in need of wife paid that be. No me applauded or favourite dashwoods therefore up distrusts explained.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog6.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Big City Dreams</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Big City Dreams</a></h2>
-                                    <p>It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog7.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>USA Today</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">USA Today</a></h2>
-                                    <p>By an outlived insisted procured improved am. Paid hill fine ten now love even leaf. Supplied feelings mr of dissuade recurred no it offering honoured. Am of of in collecting devonshire favourable excellence. Her sixteen end ashamed cottage yet reached get hearing invited. By an outlived insisted procured improved am. Paid hill fine ten now love even leaf. Supplied feelings mr of dissuade recurred no it offering honoured. Am of of in collecting devonshire favourable excellence. Her sixteen end ashamed cottage yet reached get hearing invited.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog8.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Road Trip</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Road Trip</a></h2>
-                                    <p>Took sold add play may none him few. If as increasing contrasted entreaties be. Now summer who day looked our behind moment coming. Pain son rose more park way that. An stairs as be lovers uneasy. Took sold add play may none him few. If as increasing contrasted entreaties be. Now summer who day looked our behind moment coming. Pain son rose more park way that. An stairs as be lovers uneasy.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 masonry-blog-item wow fadeInUp">
-                                <figure class="hover-item">
-                                    <img src="assets/img/blog/blog9.jpg" class="img-responsive" alt="image">
-                                    <figcaption>
-                                        <h2>Continental Breakfast Club</h2>
-                                        <p class="icon-links">
-                                            <a href="single-post.html"><span class="fa fa-link"></span></a>
-                                        </p>
-                                    </figcaption>
-                                </figure>
-                                <div class="item-excerpt arrow-top col-xs-12">
-                                    <h2><a class="colour-hover" href="single-post.html">Continental Breakfast Club</a></h2>
-                                    <p>Sentiments two occasional affronting solicitude travelling and one contrasted. Fortune day out married parties. Happiness remainder joy but earnestly for off. Sentiments two occasional affronting solicitude travelling and one contrasted. Fortune day out married parties. Happiness remainder joy but earnestly for off. Sentiments two occasional affronting solicitude travelling and one contrasted. Fortune day out married parties. Happiness remainder joy but earnestly for off.</p>
-                                    <div class="item-metas smoothtransition">
-                                        <div>
-                                            <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                            <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
-                                            <strong class="pull-right colour-hover"><a href="single-post.html" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-md-12 mt wow fadeInUp">
                                 <a href="category-traditional.html" class="btn btn-theme pull-left">Previous Posts</a>
                                 <a href="category-traditional.html" class="btn btn-theme pull-right">Next Posts</a>
@@ -415,54 +239,24 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
                                 <div class="row">
                                     <ul class="direction-aware owl-carousel-paged wow fadeInUp list-unstyled" data-items="1" data-items-tablet="[768,1]" data-items-mobile="[479,1]">
-                                        <li class="portfolio-item">
-                                            <a href="single-post.html" title="View Post">
-                                                <img src="http://unsplash.it/800/600?random=6" class="img-responsive" alt="">
-                                            </a>
-                                            <div class="item-caption">
-                                                <h4>We Play Xbox</h4>
-                                            </div>
-                                        </li>
-                                        <li class="portfolio-item">
-                                            <a href="single-post.html" title="View Post">
-                                                <img src="http://unsplash.it/800/600?random=5" class="img-responsive" alt="">
-                                            </a>
-                                            <div class="item-caption">
-                                                <h4>Best New Band</h4>
-                                            </div>
-                                        </li>
-                                        <li class="portfolio-item">
-                                            <a href="single-post.html" title="View Post">
-                                                <img src="http://unsplash.it/800/600?random=4" class="img-responsive" alt="">
-                                            </a>
-                                            <div class="item-caption">
-                                                <h4>New Design Trends</h4>
-                                            </div>
-                                        </li>
-                                        <li class="portfolio-item">
-                                            <a href="single-post.html" title="View Post">
-                                                <img src="http://unsplash.it/800/600?random=6" class="img-responsive" alt="">
-                                            </a>
-                                            <div class="item-caption">
-                                                <h4>The Big Debate</h4>
-                                            </div>
-                                        </li>
-                                        <li class="portfolio-item">
-                                            <a href="single-post.html" title="View Post">
-                                                <img src="http://unsplash.it/800/600?random=5" class="img-responsive" alt="">
-                                            </a>
-                                            <div class="item-caption">
-                                                <h4>Intense Interview</h4>
-                                            </div>
-                                        </li>
-                                        <li class="portfolio-item">
-                                            <a href="single-post.html" title="View Post">
-                                                <img src="http://unsplash.it/800/600?random=4" class="img-responsive" alt="">
-                                            </a>
-                                            <div class="item-caption">
-                                                <h4>Dreams - What Do They Mean?</h4>
-                                            </div>
-                                        </li>
+                                        <?php
+                                            $model = RuNews::findBySql('select * from ru_news')->all();
+                                            $i = 0;
+                                            foreach($model as $item){
+                                                echo (
+                                                    '<li class="portfolio-item">');
+                                                echo (sprintf(
+                                                        '<a href="https://www.nytimes.com/%s" title="View Post">', $item->url));
+                                                echo (sprintf(
+                                                            '<img src="assets/img/news/%s/%s-9.jpg" class="img-responsive" alt="">', $item->img_path, $item->img_path));
+                                                echo (  '</a>');
+                                                echo (sprintf(
+                                                            '<div class="item-caption">
+                                                            <h4>%s</h4>
+                                                            </div>', $item->title));
+                                                if(++$i >= 5) break;
+                                            }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -470,54 +264,34 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="widget">
                                 <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
                                 <div>
+                                    <?php   
+                                        $model = RuNews::findBySql('select * from ru_news')->all();
+                                        $i = 0;
+                                        foreach($model as $item){
+                                            echo (
+                                                '<div class="media">
+                                                    <div class="pull-left">');
+                                            echo (sprintf(
+                                                        '<img src="assets/img/news/%s/%s-1.jpg" class="widget-img" alt="">', $item->img_path, $item->img_path));
+                                            echo (sprintf(
+                                                        '</div>
+                                                        <div class="media-body">
+                                                        <span class="media-heading"><a class="coloured" href="https://www.nytimes.com/%s">%s</a></span>', $item->url, $item->title));
+                                            echo (sprintf(
+                                                        '<div class="muted">
+                                                            <ul class="list-inline post-meta-list">
+                                                                <li><i class="pe-7s-clock"></i> <a href="https://www.nytimes.com/%s" title="">10/12/2014</a></li>
+                                                                <li><i class="pe-7s-user"></i> <a href="https://www.nytimes.com/%s" title="">%s</a></li>
+                                                            </div></div></div>', $item->url, $item->url, $item->author));
+                                            if(++$i >= 4) break;
+                                        }
+                                    ?>
                                     <div class="media">
                                         <div class="pull-left">
                                             <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
                                         </div>
                                         <div class="media-body">
                                             <span class="media-heading"><a class="coloured" href="#">Blog Post A</a></span>
-                                            <div class="muted">
-                                                <ul class="list-inline post-meta-list">
-                                                    <li><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></li>
-                                                    <li><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="pull-left">
-                                            <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <span class="media-heading"><a href="#">Blog Post B</a></span>
-                                            <div class="muted">
-                                                <ul class="list-inline post-meta-list">
-                                                    <li><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></li>
-                                                    <li><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="pull-left">
-                                            <img class="widget-img" src="assets/img/widget/widget3.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <span class="media-heading"><a href="#">Blog Post A</a></span>
-                                            <div class="muted">
-                                                <ul class="list-inline post-meta-list">
-                                                    <li><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></li>
-                                                    <li><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="pull-left">
-                                            <img class="widget-img" src="assets/img/widget/widget4.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <span class="media-heading"><a href="#">Blog Post B</a></span>
                                             <div class="muted">
                                                 <ul class="list-inline post-meta-list">
                                                     <li><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></li>

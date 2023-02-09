@@ -1,14 +1,22 @@
 <?php
+/**
+ *  Team: 404NotFound
+ *  Coding by Su YuJia 2011068
+ *            2023/2/4
+ *  new backend's SiteController.php
+ */
 
 namespace backend\controllers;
 
 use common\models\LoginForm;
+
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 
+use frontend\models\SignupForm;
 /**
  * Site controller
  */
@@ -24,7 +32,7 @@ class SiteController extends Controller
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'signup'],
                         'allow' => true,
                     ],
                     [
@@ -37,7 +45,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -62,7 +70,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->renderpartial('index');
     }
 
     /**
@@ -72,6 +80,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -85,7 +94,21 @@ class SiteController extends Controller
 
         $model->password = '';
 
-        return $this->render('login', [
+        return $this->renderpartial('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionSignup()
+    {
+        //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            return $this->goHome();
+        }
+
+        return $this->renderpartial('signup', [
             'model' => $model,
         ]);
     }
@@ -99,6 +122,9 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        $model = new LoginForm();
+        return $this->renderPartial('login', [
+            'model' => $model,
+        ]);
     }
 }

@@ -623,6 +623,7 @@
   cursor:default
 }
 
+
 .cbp-l-filters-alignCenter .cbp-filter-counter {
 /* @editable properties */
   background:none repeat scroll 0 0 #626161;
@@ -4102,13 +4103,33 @@ from {
 }
 
 .cbp-l-grid-work .cbp-item {
-  padding:0
+  padding:0;
+  width:100% !important;
+  
+}
+.cbp-item .row1{
+  width:1200px !important;
+  position: relative;
+
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.cbp-item .citem{
+  width:1000px !important;
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+  position: relative;
+  transform: translateX(10px);
+  border-radius: 15px !important;
+
+  background-color:#fff;
+  margin: 0 auto;
+  margin-left: 120px;
 }
 
+
 .cbp-l-grid-work .cbp-item-wrapper {
-  background-color:#fff;
   box-shadow:0 1px 1px rgba(0,0,0,0.2);
-  padding:0
+  padding:0;
 }
 
 .cbp-l-grid-blog {

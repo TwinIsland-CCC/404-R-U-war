@@ -3,26 +3,27 @@
 /**
  *  Team: 404NotFound
  *  Coding by Que MingKai 2012411
- *            2023/2/2
- *  new frontend's index.php
+ *            Su YuJia    2011068
+ *            Luo XinKe   2013622
+ *            2023/2/8
+ *  new frontend's index.php 
+ *  loss weapons' kind 
+ * Russia-Ukraine war weapons display
  */
 
 /** @var yii\web\View $this */
 
-/**
- *  Team: 404NotFound
- *  Coding by Luo XinKe 2013622
- *            2023/2/8
- *  Russia-Ukraine war weapons display
- */
-
-
-use frontend\models\Weapons;
 $this->title = 'R-U War intergrade';
 
+use frontend\models\RuNews;
+use frontend\models\Weapons;
+use frontend\models\RCasualties;
+use frontend\models\Suggestion;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
-
-?>
+if(Yii::$app->session->hasFlash('success_save'))
+    //echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";?>
 
 <!--
 <div class="site-index">
@@ -98,6 +99,7 @@ $this->title = 'R-U War intergrade';
     <link href="assets/css/pe-icons.css" rel="stylesheet">
     <link href="assets/css/animate.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/timeline.css"rel="stylesheet">
 
     <script src="assets/js/jquery.min.js"></script>
 
@@ -114,7 +116,6 @@ $this->title = 'R-U War intergrade';
             });
         });
     </script>
-
 </head>
 
 <body>
@@ -341,7 +342,53 @@ $this->title = 'R-U War intergrade';
             </div>
         </div>
     </section>
-    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
+
+    <!-- 添加了俄乌战争时间线-->
+    <section id="timeline" class="timeline-outer">
+        <div class="container" id="content">
+        <div class="row">
+            <div class="col s12 m12 l12">
+            <h2 class="section-heading"><strong>Timeline</strong> Of the Russian-Ukrainian war</h2>
+            <ul class="timeline">
+                <li class="event" data-date="2014/4">
+                <h3>War in Donbass</h3>
+                <p>
+                    In 2014, pro-Russian forces in Ukraine's Donbas region divided and held independence referendums modeled on Crimea, establishing the Donetsk and Lugans republics, respectively.Then in April 2014, the war in Donbass broke out.
+                </p>
+                </li>
+                <li class="event" data-date="2015/2">
+                <h3>Minsk Agreements</h3>
+                <p>
+                    After the Minsk Agreement in February 2015 and the ceasefire settlement, the region was effectively freed from Ukrainian control, became autonomous, and moved politically closer to Russia.
+                </p>
+                </li>
+                <li class="event" data-date="2018/11">
+                <h3>Kerch Strait conflict</h3>
+                <p>On November 25, 2018, three warships, the Ukrainian naval vessels Berdyansk, Nikopol and Yanekab, crossed the Russian border and sailed towards the Kerch Strait. During the standoff, Russian ships opened fire on Ukrainian warships and seized three Ukrainian warships that had intruded into the area. In addition, a criminal case has been opened in accordance with Article 322, Part 3 of the Criminal Code of the Russian Federation (illegal crossing of the state border).
+                </p>
+                </li>
+                <li class="event" data-date="2021/2022">
+                <h3>On the eve of the Russian-Ukrainian war</h3>
+                <p>2021.3 Ukraine passed a military service bill that allows the armed forces to directly recruit reservists to participate in military operations under exceptional circumstances without a presidential mobilization order.</p>
+                <p>2021.4  Russia increased its troops to the Russian-Ukrainian border.</p>
+                <p>2021.11  NATO held a meeting to discuss the possibility of a Russian invasion of Ukraine.</p>
+                <p>2022.1.24  the evacuation of family members of U.S. diplomats began. Western countries then announced the withdrawal of diplomats and their families.</p>
+                <p>2022.1.26  Russia, Ukraine, Germany and France held talks on the "Normandy format" in Paris.</p>
+                <p>2022.2.14  The U.S. Embassy is closed. And Western media and officials said that Russia will invade Ukraine on February 16.</p>
+                <p>2022.2.19  Russia conducts nuclear drills.</p>
+                <p>2022.2.21  Putin called a meeting and livestreamed it and recognized the legitimacy of the Udon.</p>
+                <p>2022.2.22  Russia announced that it recognizes the borders defined by the Donetsk and Lugans republics and will provide them with military assistance.</p>
+                    
+                </li>
+                <li class="event" data-date="2022/2/24">
+                <h3>The Russian-Ukrainian conflict officially breaks out</h3>
+                <p>On the same day, Ukraine announces the closure of the national airspace and the severance of diplomatic relations with Russia, and President Zelensky states that Ukraine is in a state of war. On the same day, Russian troops shelled troops in eastern Ukraine, military command centres in other regions and airports.</p>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </section>
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -378,7 +425,111 @@ $this->title = 'R-U War intergrade';
             </div>
         </div>
     </section>
+    
+    <!--战争损失图 使用echarts-->
+    <section class="white section-wrapper">
+        <div class="section-inner nopaddingbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">War <strong>Losses</strong> </h2>
+                        <h3 class="section-subheading text-muted">Loss of personnel and weapons caused by war.</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="filters-container" class="cbp-l-filters-work container">
+                <div data-filter=".casualty" class="btn btn-theme cbp-filter-item-active cbp-filter-item c">
+                    casualty<span></span>
+                </div>
+                <div data-filter=".weapons-ratio" class="btn btn-theme cbp-filter-item r">
+                    weapons ratio
+                </div>
+                <div data-filter=".weapons-loss" class="btn btn-theme cbp-filter-item l">
+                    weapons loss
+                </div>
+            </div>
+            <div id="grid-container" class="cbp-l-grid-work">
+                <div class="cbp-item casualty">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts1" style="width:1000px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cbp-item weapons-ratio " id="r">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts2" style="width:1000px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cbp-item weapons-loss " id="l">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts3" style="width:1000px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
+        <div class="section-inner nopaddingbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading"><strong>Russian-Ukraine War News</strong> Posts</h2>
+                        <h3 class="section-subheading text-muted">Click these images to reach latest news.</h3>
+                    </div>
+                </div>
+            </div>
+            <ul class="owl-carousel-paged owl-controls-inside list-unstyled wow fadeInUp" data-items="3" data-items-tablet="[768,2]" data-items-mobile="[479,1]">
+                <?php
+                    $news_model = RuNews::findBySql('select * from ru_news')->all();
+                    $i = 0;
+                    foreach($news_model as $item){
+                        echo (
+                            '<li class="portfolio-item">');
+                        echo (
+                                '<figure class="hover-item">');
+                        echo (sprintf(
+                                    '<img src="assets/img/news/%s/%s-9.jpg" class="img-responsive" alt="image">', $item->img_path, $item->img_path));
+                        echo (sprintf(
+                                    '<figcaption>
+                                        <h2>%s</h2>
+                                        <p class="icon-links">
+                                            <a href="https://www.nytimes.com/%s"><span class="fa fa-link"></span></a>
+                                        </p>
+                                    </figcaption>
+                                </figure>', $item->title, $item->url));
+                        if(++$i >= 5) break;
+                    }
+                ?>
+            </ul>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">
+                            <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
+                        </h2>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
+        <div class="section-inner">
+            <div class="container">
+                <div class="col-lg-12 wow fadeInDown" >
+                    <h2 class="section-heading">
+                        <a href="index.php?r=ru-news" class="btn btn-theme">View All</a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- 武器展示 -->
@@ -401,15 +552,13 @@ $this->title = 'R-U War intergrade';
                                         <img src="assets/img/weapons/vj6h1.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="col-xs-4 item-caption">
-                                        <p>The Kord-5.45 (КОРД-5.45) light machine gun is a 5.45mm calibre dual mode light machine 
-                                            gun similar to the FN Minimi, which was originally developed from a requirement for a 
-                                            "5.45mm assault machine gun" issued by the Russian Ministry of the Interior (MVD) in 2011 
-                                            to provide counter-terrorism The aim was to provide special police units with a light machine 
-                                            gun that would have a longer-lasting firepower than the current 5.45mm squad light machine gun, 
-                                            known as the RPK74 series. The development project is codenamed "Tokar" (pronounced "Tokar"), 
-                                            which is Cyrillic for "Токарь", meaning "lathe worker ". The initial requirements included a chain 
-                                            fed cartridge, two rates of fire (600RPM and 900RPM were explicitly requested) and a quick barrel 
-                                            change, while the maximum empty weight could not exceed 6.5kg, although a dual feed mode was not yet required.</p>
+                                        <p>
+                                            <?php
+                                                $model1=Weapons::findBySql( 'SELECT * from weapons where name ="Kord-5.45" LIMIT 1') ->all();
+                                                foreach($model1 as $item)
+                                                    echo ($item->content);
+                                            ?>
+                                        </p>
                                         <span><strong>The Kord-5.45 (КОРД-5.45) light machine gun</strong></span>
                                     </div>
                                 </div>
@@ -420,13 +569,13 @@ $this->title = 'R-U War intergrade';
                                         <img src="assets/img/weapons/scrshot06.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="col-xs-4 item-caption">
-                                        <p>The development of the RPL-20 was based on new requirements issued by the Russian military in mid-2020 
-                                            for a 5.45mm light machine gun, which was to be positioned as a squad support weapon, complementing 
-                                            (not replacing) the existing 7.62x54Rmm calibre PKM or PKP machine gun. These requirements were based 
-                                            on the performance of the RPK-16 light machine gun, which was then undergoing field trials, but details 
-                                            of the requirements have not been made public, but it is clear that the Russian military wanted a 5.45mm 
-                                            calibre light machine gun of a similar size and weight to the RPK-16, but with the practical rate of fire 
-                                            and sustained fire capability of a chain-fed machine gun.</p>
+                                        <p>
+                                            <?php
+                                                $model1=Weapons::findBySql( 'SELECT * from weapons where name ="RPL-20" LIMIT 1') ->all();
+                                                foreach($model1 as $item)
+                                                    echo ($item->content);
+                                            ?>
+                                        </p>
                                         <span><strong>RPL-20 light machine gun (РПЛ-20)</strong></span>
                                     </div>
                                 </div>
@@ -440,15 +589,11 @@ $this->title = 'R-U War intergrade';
                                     </div>
                                     <div class="col-xs-4 item-caption">
                                         <p>
-                                        The MSMC submachine gun fires the 5.56×30mm cartridge, which has better penetration than the 9×19mm. 
-                                        The calibre is said to be made from a shortened case of 5.56×45 NATO ammunition, which is 42mm long, 
-                                        weighs 6g overall, has a 17mm long bullet with a 2.6 gram tip, and has a muzzle velocity of 650m/s fired 
-                                        from a 300mm barrel. It uses the guided automatic principle, with the ability to select semi-automatic or 
-                                        fully automatic firing modes, a large grip guard (the early prototypes had a small traditional trigger guard), 
-                                        a pull handle and safety/quick release handle that can be operated with either the right or left hand, 
-                                        a telescopic stock to reduce the overall size of the gun, a Picatinny rail on top of the receiver for mounting 
-                                        accessories, and the published prototype fitted with the ITL fitted to the Israeli TAR-21. MARS laser 
-                                        pointer/red dot sight fitted to the Israeli TAR-21. A muzzle flamer is fitted and a silencer can be added, as well as a bayonet.
+                                            <?php
+                                                $model1=Weapons::findBySql( 'SELECT * from weapons where name ="MSMC" LIMIT 1') ->all();
+                                                foreach($model1 as $item)
+                                                    echo ($item->content);
+                                            ?>
                                         </p>
                                         <span><strong>MSMC is known as the "Modern Submachine Carbine"</strong></span>
                                     </div>
@@ -460,18 +605,200 @@ $this->title = 'R-U War intergrade';
                                         <img src="assets/img/weapons/pu-1.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="col-xs-4 item-caption">
-                                        <p>The PU (ПУ in Russian) is an acronym for "Uniformly Fed Machine Gun" (Пулемет с унифицированной подачей),
-                                             a project proposed in 1971 to provide the infantry squad with a light machine gun with the same sustained
-                                             firepower as the PK but with the same capacity as the AK-74 series under development. The PU project was 
-                                             developed by several Izhevsk light weapons designers responsible for the AL-7 automatic rifle 
-                                             (one of the AK-74 prototypes), including Aleksandrov (Ю.К. Александрова), Nesterov (А..I. Нестрова), 
-                                             and the AK-74. ...I. Нестеров), and Viktor Kalashnikov (В. М. Калашникова), son of AK designer Mikhail 
-                                             Kalashnikov.Translated with www.DeepL.com/Translator (free version)</p>
+                                        <p>
+                                            <?php
+                                                $model1=Weapons::findBySql( 'SELECT * from weapons where name ="PU" LIMIT 1') ->all();
+                                                foreach($model1 as $item)
+                                                    echo ($item->content);
+                                            ?>
+                                        </p>
                                         <span><strong>PU "Uniformly Fed Machine Gun" (Пулемет с унифицированной подачей)</strong></span>
                                     </div>
                                 </div>
+                            </li>                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 俄乌战争7种轻武器 -->
+    <section id="testimonies" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="1.0">
+        <div class="section-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 wow fadeInDown">
+                        <h2 class="section-heading">Different types of <strong>light weapons</strong></h2>
+                        <h3 class="section-subheading text-muted">Seven different types of light weapons from Russia and Ukraine.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-22">
+                        <ul class="owl-carousel-paged testimonial-owl wow fadeInUp list-unstyled" data-items="1" data-items-tablet="[768,1]" data-items-mobile="[479,1]">
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>Machine guns</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon2.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="2" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon2.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon2.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>	Shotguns</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon6.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="6" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon6.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon6.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>Submachine guns/short assault rifles</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon4.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="4" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon4.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon4.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>Rifles</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon1.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="1" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon1.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon1.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </li>
                             
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>Sniper Rifles</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon3.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="3" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon3.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon3.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>	Pistols</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon5.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="5" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon5.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon5.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class="col-xs-1 item-caption">
+                                    <span><strong>Other support weapons</strong></span>
+                                </div>
+                                <div class="col-xs-10">
+                                    <figure class="hover-item">
+                                        <img src="assets/img/weapons/weapon7.jpg" alt="image">
+                                        <figcaption>
+                                            <h2>
+                                                <?php
+                                                 $model2=Weapons::findBySql( 'select * from weapons where kind ="7" LIMIT 1')->all();
+                                                    foreach($model2 as $item)
+                                                        echo ($item->name);
+                                                ?>
+                                            </h2>
+                                            <p class="icon-links">
+                                                <a href="assets/img/weapons/weapon7.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
+                                               <a href="weapons/weapon7.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                           
                             
                         </ul>
                     </div>
@@ -480,205 +807,6 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    
-    <!-- 俄乌两国七种武器 -->
-    <section class="white section-wrapper">
-        <div class="section-inner nopaddingbottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading">Different types of <strong>light weapons</strong> </h2>
-                        <h3 class="section-subheading text-muted">Seven different types of light weapons from Russia and Ukraine.</h3>
-                    </div>
-                </div>
-            </div>
-            <div id="filters-container" class="cbp-l-filters-work container">
-                <div data-filter=".a" class="btn btn-theme cbp-filter-item">
-                    Rifles
-                </div>
-                <div data-filter=".b" class="btn btn-theme cbp-filter-item">
-                    Machine guns
-                </div>
-                <div data-filter=".c" class="btn btn-theme cbp-filter-item">
-                    Sniper Rifles
-                </div>
-                <div data-filter=".d" class="btn btn-theme cbp-filter-item">
-                    Submachine guns
-                </div>
-                <div data-filter=".e" class="btn btn-theme cbp-filter-item">
-                    Pistols
-                </div>
-                <div data-filter=".f" class="btn btn-theme cbp-filter-item">
-                    Shotguns
-                </div>
-                <div data-filter=".g" class="btn btn-theme cbp-filter-item">
-                    Other support weapons
-                </div>
-                <div data-filter="*" class="btn btn-theme cbp-filter-item-active cbp-filter-item">
-                    All weapons
-                </div>
-            </div>
-
-            <div id="grid-container" class="cbp-l-grid-work">
-
-
-
-                <figure class="cbp-item a hover-item">
-                    <img src="assets/img/weapons/weapon1.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model1=Weapons::findBySql( 'SELECT * from weapons where kind ="1" LIMIT 1') ->all();
-                                echo ($model1->name);
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon1.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon1.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item b hover-item">
-                    <img src="assets/img/weapons/weapon2.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model2=Weapons::findBySql( 'select * from weapons where kind ="2"')->all();
-                                echo $model2->name;
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon2.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon2.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item c hover-item">
-                    <img src="assets/img/weapons/weapon3.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model=Weapons::findBySql( 'select * from weapons where kind ="3" limit 1')->all();
-                                echo $model->name;
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon3.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon3.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item d hover-item">
-                    <img src="assets/img/weapons/weapon4.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model=Weapons::findBySql( 'select * from weapons where kind ="4" limit 1')->all();
-                                echo $model->name;
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon4.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon4.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item e hover-item">
-                    <img src="assets/img/weapons/weapon5.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model=Weapons::findBySql( 'select * from weapons where kind ="5" limit 1')->all();
-                                echo $model->name;
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon5.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon5.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item f hover-item">
-                    <img src="assets/img/weapons/weapon6.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model=Weapons::findBySql( 'select * from weapons where kind ="6" limit 1')->all();
-                                echo $model->name;
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon6.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon6.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-                <figure class="cbp-item g hover-item">
-                    <img src="assets/img/weapons/weapon7.jpg" alt="image">
-                    <figcaption>
-                        <h2>
-                            <?php
-                                $model=Weapons::findBySql( 'select * from weapons where kind ="7" limit 1')->all();
-                                echo $model->name;
-                            ?>
-                        </h2>
-                        <p class="icon-links">
-                            <a href="assets/img/weapons/weapon7.jpg" class="swipebox"><span class="fa fa fa-search-plus"></span></a>
-                            <a href="weapons/weapon7.php" class="cbp-singlePage"><span class="fa fa-link"></span></a>
-                        </p>
-                    </figcaption>
-                </figure>
-
-  
-            </div>
-        </div>
-    </section>
-    
-    <!-- 俄乌两国部分武器 -->
-    <section class="white halfcreen big-carousel">
-        <div class="section-inner nopaddingbottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 wow fadeInDown">
-                        <h2 class="section-heading"><strong>Blog</strong> Posts</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                    </div>
-                </div>
-            </div>
-            <ul class="owl-carousel-paged owl-controls-inside list-unstyled wow fadeInUp" data-items="3" data-items-tablet="[768,2]" data-items-mobile="[479,1]">
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio9.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>Tall Tales</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="portfolio-item">
-                    <figure class="hover-item">
-                        <img src="assets/img/portfolio/portfolio8.jpg" class="img-responsive" alt="image">
-                        <figcaption>
-                            <h2>A Crime Story</h2>
-                            <p class="icon-links">
-                                <a href="single-post.html"><span class="fa fa-link"></span></a>
-                            </p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                
-            </ul>
-        </div>
-    </section>
 
     <!-- 添加了俄乌战争战线图（直接调用其他网站）-->
     <section id="ua-map" class="white section-wrapper">
@@ -702,35 +830,44 @@ $this->title = 'R-U War intergrade';
         </div>
     </section>
 
-    <section id="contact" class="white section-wrapper">
+    <section id="contact-lower" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
         <div class="section-inner nopaddingbottom">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
                         <h2 class="section-heading"><strong>Contact</strong> Us</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h3 class="section-subheading text-muted">Put forward your suggestions for our website.</h3>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="contact-lower" class="white section-wrapper">
-        <div class="section-inner">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="message"></div>
-                        <form method="post" action="sendemail.php" id="contactform">
+                        <!--<form method="post" action="insert()" id="contactform">
                             <p><input type="text" class="form-control" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." /></p>
                             <p><input type="text" class="form-control" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." /></p>
-                            <p><input type="text" class="form-control" name="website" placeholder="Your URL *" id="website" required data-validation-required-message="Please enter your web address." /></p>
-                            <p><textarea name="comments" rows="5" class="form-control" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea></p>
-                            <input class="btn btn-theme pull-right" type="submit" name="submit" value="Submit" />
+                            <p><textarea name="suggestion" rows="5" class="form-control" id="suggestion" placeholder="Your Suggestion *" required data-validation-required-message="Please enter your suggestion."></textarea></p>
+                            <input class="btn btn-theme pull-right" type="submit" name="submit" value="Submit" onClick = "buttonClick();"/>
                         </form>
+                        -->
+                        <?php $form = ActiveForm::begin(); ?>
+
+                            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+                            <?= $form->field($model, 'email') ?>
+
+                            <?= $form->field($model, 'suggestion')->textarea(['row'=>'6']) ?>
+
+                            <div class="form-group">
+                                <?= Html::resetButton(Yii::t('app','Reset' ), ['class' =>'btn btn-theme pull-left']) ?>
+                                <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-theme pull-right']) ?>
+
+                            </div>
+
+                        <?php ActiveForm::end(); ?>
                     </div>
-                    <div class="col-md-6">
-                        <p>Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.</p>
+                    <div class="col-md-6" style="margin-top:20px;">
+                        <p>The information displayed on the website comes from the Internet, and since it is difficult to find reliable information, some indicators may not reflect the real situation, but we try to select reliable sources for you.If you find errors in the information on the website or have any comments, you can contact us.</p>
                         <p>Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage mr be. Hold do at tore in park feet near my case. Invitation at understood occasional sentiments insipidity inhabiting in. Off melancholy alteration principles old. Is do speedily kindness properly oh. Respect article painted cottage he is offices parlors.</p>
                     </div>
                 </div>
@@ -882,4 +1019,415 @@ $this->title = 'R-U War intergrade';
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/cubeportfolio.js"></script>
     <script src="assets/js/init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+    <script type="text/javascript">
+        var i=document.getElementById('r');
+        var start=0;
+        $(".c").click(function() {
+            start=0;
+        });
+        $(".r").click(function() {
+            i.style.display="block";
+            start=0;
+        });
+        i.style.display="none";
+        var j=document.getElementById('l');
+        $(".l").click(function() {
+            j.style.display="block";
+            start=1;
+        });
+        j.style.display="none";
+        j.parentElement.parentElement.style.height="530px";
+
+    </script>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('echarts1'),null, {devicePixelRatio: 2.5});
+        const days = [
+            '1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12',
+            '13', '14', '15', '16', '17', '18','19', '20', '21', '22', '23', '24',
+            '25', '26', '27', '28', '29', '30', '31'
+        ];
+        // prettier-ignore
+        const months = [
+            'March', 'April', 'May','June', 'July', 
+            'August', 'September', 'October', 'November', 'December'
+        ];
+        // prettier-ignore
+        const data1 = [
+        <?php 
+            $model=RCasualties::findBySql('select * from r_casualties where time<"2023-01-01" order by time asc;')->all();
+            $index=0;
+            $pre=0;
+            foreach($model as $item){
+                $month=intval(substr(strval(($item->time)),5,2))-3;
+                $day=intval(substr(strval(($item->time)),8,2))-1;
+                $increase=$item->num-$pre;
+                echo ('['.$month.','.$day.','.$increase.'],');  
+                $pre=$item->num;
+                if($month==1 && $month==3 && $month==6 && $month==8){
+                    if($day==29){
+                        echo '['.$month.',30,0],';
+
+                    }
+                }
+            }
+        ?>]
+        .map(function (item) {
+            return [item[1], item[0], item[2] || '-'];
+        });
+        var option1 = {
+            title: {
+                text: 'Daily Casualties',
+                left: '43%',
+                fontSize: 35,
+                fontStyle:'bold'
+            },
+            tooltip: {
+                position: 'top'
+            },
+             dataZoom: [{
+                 type: 'inside'
+             }],
+            grid: {
+                height: '72%',
+                width: '85%',
+                top: '10%'
+            },
+            xAxis: {
+                type: 'category',
+                data: days,
+                splitArea: {
+                    show: true
+                }
+            },
+            yAxis: {
+                type: 'category',
+                data: months,
+                splitArea: {
+                    show: true
+                }
+            },
+            visualMap: {
+                min: 0,
+                max: 1000,
+                calculable: true,
+                orient: 'horizontal',
+                left: 'center',
+                bottom: '7%',
+                inRange: {
+                    color: ['#D9E9FF', "#0B69E3"]
+                }
+            },
+            series: [
+                {
+                    name: 'Casualties Num',
+                    type: 'heatmap',
+                    data: data1,
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option1);
+
+    </script>
+
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart2 = echarts.init(document.getElementById('echarts2'),null, {devicePixelRatio: 2.5});
+      $.getJSON('assets/data/echarts2.json', function(data){
+        var result = [];
+        var result1 = [];
+        var name = [];
+        var name1 = [];
+        $.each(data, function(i,item){
+            var j=0;
+            var flag=0;
+            result1[i]={'name':item.armsname,'value':item.num};
+            name1[i]=item.armsname;
+
+            if(i==0){
+                result.push({'name':item.category,'value':item.num})
+                name[0]=item.category;
+            }
+            else{
+                while(j!=result.length) {
+                    if(result[j]['name']==item.category) {
+                        result[j]['value']+=item.num;
+                        flag=1;
+                        break;
+                    }
+                    j+=1;
+                }
+                if(flag==0){
+                    result.push({'name':item.category,'value':item.num});
+                    name[j]=item.category;
+                }
+            }
+        });
+        //alert(name.length);
+        var option2 = {
+            title: {
+                text: 'The Proportion Of Weapons In The War',
+                left: '34%',
+                fontSize: 35,
+                fontStyle:'bold'
+            },
+            legend: [
+                {
+                    orient: 'vertical',
+                    left: '0%',
+                    top: '5%',
+                    textStyle: {
+                        fontSize: 14
+                    },
+                    data:name
+                },
+                {
+                    orient: 'vertical',
+                    left: '8%',
+                    top: '5%',
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    data:name1
+                }
+            ],
+            color: [
+                '#988D80',
+                '#7F4620',
+                '#624F40',
+                '#223B3A',
+                '#532B23',
+                '#505B59',
+                '#343231',
+                '#714641',
+                '#7289ab',
+                '#5C4F43',
+                '#8E5118',
+                '#998A7E',
+                '#B6B6B6',
+                '#414141'
+            ],
+            series: [ 
+                {
+                    left: '20%',
+                    top: '8%',
+                    type: 'pie',
+                    radius: [0, '30%'],
+                    avoidLabelOverlap: false,
+                    selectedMode: 'single',
+                    label: {
+                        position: 'inner',
+                        fontSize: 14
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                        }
+                    },
+                    data: result
+                },
+                {
+                    left: '20%',
+                    top: '8%',
+                    type: 'pie',
+                    radius: ['50%', '85%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{b|{b}：}{c}  {per|{d}%}  ',
+                        backgroundColor: '#F6F8FC',
+                        borderColor: '#8C8D8E',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        rich: {
+                            hr: {
+                                borderColor: '#8C8D8E',
+                                width: '100%',
+                                borderWidth: 1,
+                                height: 0
+                            },
+                            b: {
+                                color: '#4C5058',
+                                fontSize: 12,
+                                fontWeight: 'bold',
+                                lineHeight: 32
+                            },
+                            per: {
+                                color: '#fff',
+                                backgroundColor: '#4C5058',
+                                padding: [3, 4],
+                                fontSize: 12,
+                                borderRadius: 4
+                            }
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                        }
+                    },
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: result1
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+      });
+    </script>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('echarts3'),null, {devicePixelRatio: 2.5});
+        // 指定图表的配置项和数据
+        var result = [];
+        var data = [];
+        $.getJSON('assets/data/echarts3.json', function(data1){
+            $.each(data1, function(i,item){
+                result[i]={'name':item.armsname,'value':item.num,'time':item.time};
+            });
+            var category_num = 0;
+            while(result[category_num]['time']==result[0]['time'])
+                category_num += 1;
+            var index = 0;
+            for(;index<category_num;index++){
+                data[index]=[result[index]['value'],result[index]['name']];
+            }
+            var time = result[0]['time'].replace('-','.');
+            time = time.substr(0,7);
+            const weaponColors = {
+                '坦克': '#6B2B1F',
+                '飞机': '#414141',
+                '无人机': '#314947',
+                '直升机': '#7F4723',
+                '枪支': '#8C8F8D',
+                '火箭炮': '#4D4732',
+                '防空系统': '#20231B',
+                '船只': '#224161',
+                '汽车和油罐车': '#99826B',
+                '巡航导弹': '#988658',
+            };
+            var option3 = {
+                title: {
+                    text: 'Number Of Weapon Losses',
+                    left: '40%',
+                    fontSize: 35,
+                    fontStyle:'bold'
+                },
+                xAxis: {
+                    max: 'dataMax',
+                },
+                grid: {
+                    top: 30,
+                    bottom: 30,
+                    left: 150,
+                    right: 80
+                },
+                yAxis: {
+                    type: 'category',
+                    inverse: true,
+                    animationDuration: 300,
+                    animationDurationUpdate: 300,
+                    max: 9, // only the largest 3 bars will be displayed
+                    rich: {
+                        flag: {
+                            fontSize: 25,
+                            padding: 5
+                        }
+                    }
+                },
+                series: [
+                {
+                    realtimeSort: true,
+                    top: '10%',
+                    type: 'bar',
+                    data: data,
+                    seriesLayoutBy: 'column',
+                    itemStyle: {
+                        color: function (param) {
+                            return weaponColors[param.value[1]]||'#5470c6';
+                        }
+                    },
+                    encode: { 
+                        x: 0, 
+                        y: 3, 
+                    },
+                    label: {
+                        show: true,
+                        precision: 0,
+                        position: 'right',
+                        valueAnimation: true,
+                        fontFamily: 'monospace'
+                    }
+                }
+                ],
+                animationDuration: 3000,
+                animationDurationUpdate: 3000,
+                animationEasing: 'linear',
+                animationEasingUpdate: 'linear',
+                graphic: {
+                  elements: [
+                      {
+                          type: 'text',
+                          right: 0,
+                          bottom: 60,
+                          style: {
+                              text: time.toString(),
+                              font: 'bolder 80px monospace',
+                              fill: 'rgba(100, 100, 100, 0.25)'
+                          },
+                          z: 100
+                      }
+                  ]
+              }
+            };
+            function update() {
+                if(start==1){
+                var data = option3.series[0].data;
+                if(index==result.length)
+                    return;
+                for (var i = 0; i < category_num; ++i) {
+                    //data[i]['name']=result[index+i]['name'];
+                    //data[i]['value']=result[index+i]['value'];
+                    data[i]=[result[index+i]['value'],result[index+i]['name']];
+                }
+                time = result[index]['time'].replace('-','.');
+                time = time.substr(0,7);
+                index += category_num;
+                option3.series[0].data=data;
+                option3.graphic.elements[0].style.text = time;
+                myChart3.setOption(option3);
+            }
+            }
+            setInterval(function() { update();}, 100);
+            // 使用刚指定的配置项和数据显示图表。
+            myChart3.setOption(option3);
+        });
+    </script>
 </body>
