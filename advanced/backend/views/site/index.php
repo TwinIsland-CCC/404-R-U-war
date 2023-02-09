@@ -781,7 +781,7 @@ use yii\bootstrap5\Html;
 											</span>
 											
 											<span class="line desc small">
-												This ainâ€™t our first item, it is the best of the rest.
+												This ain¡¯t our first item, it is the best of the rest.
 											</span>
 										</a>
 									</li>
@@ -835,7 +835,7 @@ use yii\bootstrap5\Html;
 											</span>
 											
 											<span class="line desc small">
-												This ainâ€™t our first item, it is the best of the rest.
+												This ain¡¯t our first item, it is the best of the rest.
 											</span>
 										</a>
 									</li>
@@ -1270,7 +1270,7 @@ use yii\bootstrap5\Html;
 					<div class="footer-text">
 						&copy; 2014 
 						<strong>Xenon</strong> 
-						More Templates <a href="http://bulamao.taobao.com" target="_blank" title="å¸ƒæ‹‰çŒ«">å¸ƒæ‹‰çŒ«</a> - Collect from <a href="http://www.dmaku.com" title="ç½‘é¡µæ¨¡æ¿" target="_blank">ç½‘é¡µæ¨¡æ¿</a>
+						More Templates <a href="http://bulamao.taobao.com" target="_blank" title="²¼À­Ã¨">²¼À­Ã¨</a> - Collect from <a href="http://www.dmaku.com" title="ÍøÒ³Ä£°å" target="_blank">ÍøÒ³Ä£°å</a>
 					</div>
 					
 					

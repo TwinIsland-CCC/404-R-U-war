@@ -92,7 +92,7 @@ class SiteController extends Controller
         $model->id=Suggestion::find()->count();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success_save', 'Thank you for your suggestion.');
-            //echo "<script language=\"JavaScript\">alert(\"鐢ㄦ埛鍚嶄笉鑳戒负绌猴紒\");</script>";
+            //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
             return $this->goHome();
         }
         $model->username = '';
