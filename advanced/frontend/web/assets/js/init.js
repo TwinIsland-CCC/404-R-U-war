@@ -142,14 +142,22 @@ $(document).ready(function(){
     }
   });
 
-  // ONEPAGER //
-  $('a.page-scroll').bind('click', function(event) {
-      var $anchor = $(this);
-      $('html, body').stop().animate({
-          scrollTop: $($anchor.attr('href')).offset().top
-      }, 1500, 'easeInOutExpo');
-      event.preventDefault();
+  
+  $("nav").find("a").click(function(e) {
+    var section = $(this).attr("href");
+    $("html, body").animate({scrollTop: $(section).offset().top }, 1500, 'easeInOutExpo');
+    e.preventDefault();
   });
+
+  // ONEPAGER //
+  // $('a.page-scroll').bind('click', function(event) {
+  //     var $anchor = $(this);
+  //     $('html, body').stop().animate({
+  //         scrollTop: $($anchor.attr('href')).offset().top
+  //     }, 1500, 'easeInOutExpo');
+  //     event.preventDefault();
+  //     return false;
+  // });
 
   //NEAT VID EMBEDS
   $().prettyEmbed({ useFitVids: true });

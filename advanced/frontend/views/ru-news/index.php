@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <link rel="apple-touch-icon" sizes="72x72" href="assets/img/icon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon-57x57.png">
 
-    <title>Ello by Distinctive Themes</title>
+    <title>404NotFound: Russian-Ukraine War News Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">

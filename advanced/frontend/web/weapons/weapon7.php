@@ -18,7 +18,7 @@
     <div class="cbp-slider mb">
         <ul class="cbp-slider-wrap">
             <li class="cbp-slider-item">
-                <img src="assets/img/weapons/weapon5.jpg" alt="">
+                <img src="assets/img/weapons/weapon7.jpg" alt="">
             </li>
         </ul>
     </div>

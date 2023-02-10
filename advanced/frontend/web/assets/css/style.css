@@ -280,6 +280,12 @@ p.white, span.white, .white-text {
 	height: auto;
 }
 
+.img-responsive-new {
+	text-align:center;
+	width: 100%;
+	height: auto;
+}
+
 .col-md-5th {
 	width: 20%;
 }
@@ -1109,6 +1115,11 @@ figure.hover-item img {
 	-o-transition:all .5s ease-in-out;
 	-ms-transition:all .5s ease-in-out;
 	transition:all .5s ease-in-out
+}
+
+figure.hover-item img.img-responsive-new {
+	height: auto;
+	width: 100%;
 }
 
 figure.hover-item:hover img {

@@ -4103,8 +4103,6 @@ from {
 }
 
 .cbp-l-grid-work .cbp-item {
-  padding:0
-
   padding:0;
   width:100% !important;
   display:block;
@@ -4126,10 +4124,6 @@ from {
   background-color:#fff;
   margin: 0 auto;
   margin-left: 120px;
-}
-
-  margin: 0 auto;
-  margin-bottom: 30px;
 }
 .cbp-item .citem{
   width:1000px !important;
