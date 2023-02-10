@@ -21,6 +21,7 @@ use frontend\models\RCasualties;
 use frontend\models\Suggestion;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 
 if(Yii::$app->session->hasFlash('success_save'))
     //echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";?>
@@ -107,9 +108,9 @@ if(Yii::$app->session->hasFlash('success_save'))
         $(document).ready(function() {
             'use strict';
             jQuery('#headerwrap').backstretch([
-                "assets/img/bg/bg1.jpg",
-                "assets/img/bg/bg2.jpg",
-                "assets/img/bg/bg3.jpg"
+                "assets/img/bg/bg1.png",
+                "assets/img/bg/bg2.png",
+                "assets/img/bg/bg3.png"
             ], {
                 duration: 8000,
                 fade: 800
@@ -147,7 +148,7 @@ if(Yii::$app->session->hasFlash('success_save'))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h2><a class="navbar-brand" href="index.php">ELLO</a></h2>
+                <h2><a class="navbar-brand" href="index.php">Russian-Ukrainian War</a></h2>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -216,8 +217,8 @@ if(Yii::$app->session->hasFlash('success_save'))
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="fancy wow fadeInDown" data-wow-delay="1.5s"><span><strong>SOMETHING A LITTLE DIFFERENT</strong></span></h3>
-                        <h1 class="mb30 wow fadeInUp" data-wow-delay="2s">WELCOME TO ELLO</h1>
+                        <h3 class="fancy wow fadeInDown" data-wow-delay="1.5s"><span><strong>404NotFound</strong></span></h3>
+                        <h1 class="mb30 wow fadeInUp" data-wow-delay="2s">WELCOME TO R-U War</h1>
                         <a class="page-scroll btn btn-theme btn-lg btn-white wow fadeInUp" data-wow-delay="2.5s" href="#about-us">Take A Look</a>
                     </div>
                 </div>
@@ -349,6 +350,7 @@ if(Yii::$app->session->hasFlash('success_save'))
         <div class="row">
             <div class="col s12 m12 l12">
             <h2 class="section-heading"><strong>Timeline</strong> Of the Russian-Ukrainian war</h2>
+                <a href="<?php echo Url::to(['time-info/index']);?>" target="_blank" >learn more >></a>
             <ul class="timeline">
                 <li class="event" data-date="2014/4">
                 <h3>War in Donbass</h3>
