@@ -4103,6 +4103,8 @@ from {
 }
 
 .cbp-l-grid-work .cbp-item {
+  padding:0
+
   padding:0;
   width:100% !important;
   display:block;
@@ -4125,6 +4127,22 @@ from {
   margin: 0 auto;
   margin-left: 120px;
 }
+
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.cbp-item .citem{
+  width:1000px !important;
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+  position: relative;
+  transform: translateX(10px);
+  border-radius: 15px !important;
+
+  background-color:#fff;
+  margin: 0 auto;
+  margin-left: 120px;
+}
+
 
 .cbp-l-grid-work .cbp-item-wrapper {
   box-shadow:0 1px 1px rgba(0,0,0,0.2);
