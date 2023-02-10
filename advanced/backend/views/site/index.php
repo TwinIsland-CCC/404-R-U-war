@@ -5,8 +5,15 @@
  *            2023/2/4
  *  new backend's index.php
  */
+/**
+ *  Team: 404NotFound
+ *  Coding by Luo Xinke 2013622
+ *            2023/2/10
+ *  Create backend
+ */
 
 /** @var yii\web\View $this */
+use backend\models\TeamMembers;
 use yii\bootstrap5\Html;
 ?>
 <!DOCTYPE html>
@@ -51,7 +58,7 @@ use yii\bootstrap5\Html;
 					<div class="user-info">
 						
 						<div class="user-image">
-							<a href="extra-profile.html">
+							<a>
 								<img src="assets/images/user-2.png" class="img-responsive img-circle" />
 							</a>
 						</div>
@@ -59,7 +66,7 @@ use yii\bootstrap5\Html;
 						<div class="user-details">
 							
 							<h3>
-								<a href="extra-profile.html">John Smith</a>
+								<a href="#">404 NOT FOUND</a>
 								
 								<!-- Available statuses: is-online, is-idle, is-busy and is-offline -->
 								<span class="user-status is-online"></span>
@@ -68,8 +75,8 @@ use yii\bootstrap5\Html;
 							<p class="user-title">Web Developer</p>
 							
 							<div class="user-links">
-								<a href="extra-profile.html" class="btn btn-primary">Edit Profile</a>
-								<a href="extra-profile.html" class="btn btn-success">Upgrade</a>
+								<a class="btn btn-primary">Edit Profile</a>
+								<a class="btn btn-success">Upgrade</a>
 							</div>
 							
 						</div>
@@ -88,7 +95,7 @@ use yii\bootstrap5\Html;
 						<ul class="list-unstyled">
 							<li>
 								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk1" />
-								<label for="sp-chk1">Messages</label>
+								<label for="sp-chk1">TeamMemberss</label>
 							</li>
 							<li>
 								<input type="checkbox" class="cbr cbr-primary" checked="checked" id="sp-chk2" />
@@ -161,35 +168,12 @@ use yii\bootstrap5\Html;
 					
 					<!-- logo -->
 					<div class="logo">
-						<a href="dashboard-1.html" class="logo-expanded">
-							<img src="assets/images/logo@2x.png" width="80" alt="" />
-						</a>
+						<h3 style="color:white;font-size:25px;">
+							404 NOT FOUND 
+						</h3>
 						
-						<a href="dashboard-1.html" class="logo-collapsed">
-							<img src="assets/images/logo-collapsed@2x.png" width="40" alt="" />
-						</a>
-					</div>
 					
-					<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
-					<div class="mobile-menu-toggle visible-xs">
-						<a href="#" data-toggle="user-info-menu">
-							<i class="fa-bell-o"></i>
-							<span class="badge badge-success">7</span>
-						</a>
-						
-						<a href="#" data-toggle="mobile-menu">
-							<i class="fa-bars"></i>
-						</a>
 					</div>
-					
-					<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
-					<div class="settings-icon">
-						<a href="#" data-toggle="settings-pane" data-animate="true">
-							<i class="linecons-cog"></i>
-						</a>
-					</div>
-					
-								
 				</header>
 						
 				
@@ -198,549 +182,138 @@ use yii\bootstrap5\Html;
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="dashboard-1.html">
-							<i class="linecons-cog"></i>
-							<span class="title">Dashboard</span>
-						</a>
-						<ul>
-							<li>
-								<a href="dashboard-1.html">
-									<span class="title">Dashboard 1</span>
-								</a>
-							</li>
-							<li>
-								<a href="dashboard-2.html">
-									<span class="title">Dashboard 2</span>
-								</a>
-							</li>
-							<li>
-								<a href="dashboard-3.html">
-									<span class="title">Dashboard 3</span>
-								</a>
-							</li>
-							<li>
-								<a href="dashboard-4.html">
-									<span class="title">Dashboard 4</span>
-								</a>
-							</li>
-							<li>
-								<a href="skin-generator.html">
-									<span class="title">Skin Generator</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="layout-variants.html">
-							<i class="linecons-desktop"></i>
-							<span class="title">Layouts</span>
-						</a>
-						<ul>
-							<li>
-								<a href="layout-variants.html">
-									<span class="title">Layout Variants &amp; API</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-collapsed-sidebar.html">
-									<span class="title">Collapsed Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-static-sidebar.html">
-									<span class="title">Static Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu.html">
-									<span class="title">Horizontal Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-plus-sidebar.html">
-									<span class="title">Horizontal &amp; Sidebar Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu-click-to-open-subs.html">
-									<span class="title">Horizontal Open On Click</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-menu-min.html">
-									<span class="title">Horizontal Menu Minimal</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-right-sidebar.html">
-									<span class="title">Right Sidebar</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-chat-open.html">
-									<span class="title">Chat Open</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-horizontal-sidebar-menu-collapsed-right.html">
-									<span class="title">Both Menus &amp; Collapsed</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-boxed.html">
-									<span class="title">Boxed Layout</span>
-								</a>
-							</li>
-							<li>
-								<a href="layout-boxed-horizontal-menu.html">
-									<span class="title">Boxed &amp; Horizontal Menu</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span class="title">weidea.net</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="ui-panels.html">
-							<i class="linecons-note"></i>
-							<span class="title">UI Elements</span>
-						</a>
-						<ul>
-							<li>
-								<a href="ui-panels.html">
-									<span class="title">Panels</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-buttons.html">
-									<span class="title">Buttons</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-tabs-accordions.html">
-									<span class="title">Tabs &amp; Accordions</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-modals.html">
-									<span class="title">Modals</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-breadcrumbs.html">
-									<span class="title">Breadcrumbs</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-blockquotes.html">
-									<span class="title">Blockquotes</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-progressbars.html">
-									<span class="title">Progress Bars</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-navbars.html">
-									<span class="title">Navbars</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-alerts.html">
-									<span class="title">Alerts</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-pagination.html">
-									<span class="title">Pagination</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-typography.html">
-									<span class="title">Typography</span>
-								</a>
-							</li>
-							<li>
-								<a href="ui-other-elements.html">
-									<span class="title">Other Elements</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="ui-widgets.html">
+						<a href=#>
 							<i class="linecons-star"></i>
-							<span class="title">Widgets</span>
-						</a>
-					</li>
-					<li>
-						<a href="mailbox-main.html">
-							<i class="linecons-mail"></i>
-							<span class="title">Mailbox</span>
-							<span class="label label-success pull-right">5</span>
+							<span class="title">课程作业</span>
 						</a>
 						<ul>
 							<li>
-								<a href="mailbox-main.html">
-									<span class="title">Inbox</span>
+								<a href="data/team/404NotFound_需求文档(2013622_2011068_2012411_1911573).pdf">
+									<span class="title">404NotFound_需求文档</span>
 								</a>
 							</li>
 							<li>
-								<a href="mailbox-compose.html">
-									<span class="title">Compose Message</span>
+								<a href="data/team/404NotFound_设计文档(2013622_2011068_2012411_1911573).pdf">
+									<span class="title">404NotFound_设计文档</span>
 								</a>
 							</li>
 							<li>
-								<a href="mailbox-message.html">
-									<span class="title">View Message</span>
+								<a href="data/team/404NotFound_实现文档(2013622_2011068_2012411_1911573).pdf">
+									<span class="title">404NotFound_实现文档</span>
+								</a>
+							</li>
+							<li>
+								<a href="data/team/404NotFound_用户手册(2013622_2011068_2012411_1911573).pdf">
+									<span class="title">404NotFound_用户手册</span>
+								</a>
+							</li>
+							<li>
+								<a href="data/team/404NotFound_部署文档(2013622_2011068_2012411_1911573).pdf">
+									<span class="title">404NotFound_部署文档</span>
+								</a>
+							</li>
+							<li>
+								<a href="data/team/404NotFound_项目展示PPT(2013622_2011068_2012411_1911573).ppt">
+									<span class="title">404NotFound_项目展示PPT</span>
 								</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a href="tables-basic.html">
-							<i class="linecons-database"></i>
-							<span class="title">Tables</span>
+						<a href=#>
+							<i class="linecons-star"></i>
+							<span class="title">个人作业1-Web前端初探</span>
 						</a>
 						<ul>
-							<li>
-								<a href="tables-basic.html">
-									<span class="title">Basic Tables</span>
+						<li>
+								<a href="data/personal/作业1(2013622_罗昕珂).zip">
+									<span class="title">罗昕珂(2013622) </span>
 								</a>
 							</li>
 							<li>
-								<a href="tables-responsive.html">
-									<span class="title">Responsive Table</span>
+								<a href="data/personal/作业1(2011068_苏雨佳).zip">
+									<span class="title">苏雨佳(2011068)</span>
 								</a>
 							</li>
 							<li>
-								<a href="tables-datatables.html">
-									<span class="title">Data Tables</span>
+								<a href="data/personal/作业1(2012411_卻铭恺).zip">
+									<span class="title">卻铭恺(2012411)</span>
+								</a>
+							</li>
+							<li>
+								<a href="data/personal/作业1(1911573_王一如).zip">
+									<span class="title">王一如(1911573)</span>
 								</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a href="forms-native.html">
-							<i class="linecons-params"></i>
-							<span class="title">Forms</span>
+						<a href=#>
+							<i class="linecons-star"></i>
+							<span class="title">个人作业2-Web前端设计</span>
 						</a>
 						<ul>
 							<li>
-								<a href="forms-native.html">
-									<span class="title">Native Elements</span>
+								<a href="data/personal/作业2(2013622_罗昕珂).zip">
+									<span class="title">罗昕珂(2013622) </span>
 								</a>
 							</li>
 							<li>
-								<a href="forms-advanced.html">
-									<span class="title">Advanced Plugins</span>
+								<a href="data/personal/作业2(2011068_苏雨佳).zip">
+									<span class="title">苏雨佳(2011068)</span>
 								</a>
 							</li>
 							<li>
-								<a href="forms-wizard.html">
-									<span class="title">Form Wizard</span>
+								<a href="data/personal/作业2(2012411_卻铭恺).zip">
+									<span class="title">卻铭恺(2012411)</span>
 								</a>
 							</li>
 							<li>
-								<a href="forms-validation.html">
-									<span class="title">Form Validation</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-input-masks.html">
-									<span class="title">Input Masks</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-file-upload.html">
-									<span class="title">File Upload</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-editors.html">
-									<span class="title">Editors</span>
-								</a>
-							</li>
-							<li>
-								<a href="forms-sliders.html">
-									<span class="title">Sliders</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="opened active">
-						<a href="extra-gallery.html">
-							<i class="linecons-beaker"></i>
-							<span class="title">Extra</span>
-							<span class="label label-purple pull-right hidden-collapsed">New Items</span>
-						</a>
-						<ul>
-							<li>
-								<a href="extra-icons-fontawesome.html">
-									<span class="title">Icons</span>
-									<span class="label label-warning pull-right">4</span>
-								</a>
-								<ul>
-									<li>
-										<a href="extra-icons-fontawesome.html">
-											<span class="title">Font Awesome</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-icons-linecons.html">
-											<span class="title">Linecons</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-icons-elusive.html">
-											<span class="title">Elusive</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-icons-meteocons.html">
-											<span class="title">Meteocons</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="opened active">
-								<a href="extra-maps-google.html">
-									<span class="title">Maps</span>
-								</a>
-								<ul>
-									<li>
-										<a href="extra-maps-google.html">
-											<span class="title">Google Maps</span>
-										</a>
-									</li>
-									<li>
-										<a href="extra-maps-advanced.html">
-											<span class="title">Advanced Map</span>
-										</a>
-									</li>
-									<li class="active">
-										<a href="extra-maps-vector.html">
-											<span class="title">Vector Map</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="extra-gallery.html">
-									<span class="title">Gallery</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-calendar.html">
-									<span class="title">Calendar</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-profile.html">
-									<span class="title">Profile</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-login.html">
-									<span class="title">Login</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-lockscreen.html">
-									<span class="title">Lockscreen</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-login-light.html">
-									<span class="title">Login Light</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-timeline.html">
-									<span class="title">Timeline</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-timeline-center.html">
-									<span class="title">Timeline Centerd</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-notes.html">
-									<span class="title">Notes</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-image-crop.html">
-									<span class="title">Image Crop</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-portlets.html">
-									<span class="title">Portlets</span>
-								</a>
-							</li>
-							<li>
-								<a href="blank-sidebar.html">
-									<span class="title">Blank Page</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-search.html">
-									<span class="title">Search</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-invoice.html">
-									<span class="title">Invoice</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-not-found.html">
-									<span class="title">404 Page</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-tocify.html">
-									<span class="title">Tocify</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-loader.html">
-									<span class="title">Loading Progress</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-page-loading-ol.html">
-									<span class="title">Page Loading Overlay</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-notifications.html">
-									<span class="title">Notifications</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-nestable-lists.html">
-									<span class="title">Nestable Lists</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-scrollable.html">
-									<span class="title">Scrollable</span>
+								<a href="data/personal/作业2(1911573_王一如).zip">
+									<span class="title">王一如(1911573)</span>
 								</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a href="charts-main.html">
-							<i class="linecons-globe"></i>
-							<span class="title">Charts</span>
+						<a href=#>
+							<i class="linecons-star"></i>
+							<span class="title">个人作业3开源建站工具初试文档</span>
 						</a>
 						<ul>
-							<li>
-								<a href="charts-main.html">
-									<span class="title">Chart Variants</span>
+						<li>
+								<a href="data/personal/作业3(2013622_罗昕珂).zip">
+									<span class="title">罗昕珂(2013622) </span>
 								</a>
 							</li>
 							<li>
-								<a href="charts-range.html">
-									<span class="title">Range Selector</span>
+								<a href="data/personal/作业3(2011068_苏雨佳).zip">
+									<span class="title">苏雨佳(2011068)</span>
 								</a>
 							</li>
 							<li>
-								<a href="charts-sparklines.html">
-									<span class="title">Sparklines</span>
+								<a href="data/personal/作业3(2012411_卻铭恺).zip">
+									<span class="title">卻铭恺(2012411)</span>
 								</a>
 							</li>
 							<li>
-								<a href="charts-map.html">
-									<span class="title">Map Charts</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-gauges.html">
-									<span class="title">Circular Gauges</span>
-								</a>
-							</li>
-							<li>
-								<a href="charts-bar-gauges.html">
-									<span class="title">Bar Gauges</span>
+								<a href="data/personal/作业3(1911573_王一如).zip">
+									<span class="title">王一如(1911573)</span>
 								</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">
-							<i class="linecons-cloud"></i>
-							<span class="title">Menu Levels</span>
+						<a href="index.php?r=team-members">
+							<i class="linecons-star"></i>
+							<span class="title">小组成员信息管理</span>
 						</a>
-						<ul>
-							<li>
-								<a href="#">
-									<i class="entypo-flow-line"></i>
-									<span class="title">Menu Level 1.1</span>
-								</a>
-								<ul>
-									<li>
-										<a href="#">
-											<i class="entypo-flow-parallel"></i>
-											<span class="title">Menu Level 2.1</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="entypo-flow-parallel"></i>
-											<span class="title">Menu Level 2.2</span>
-										</a>
-										<ul>
-											<li>
-												<a href="#">
-													<i class="entypo-flow-cascade"></i>
-													<span class="title">Menu Level 3.1</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="entypo-flow-cascade"></i>
-													<span class="title">Menu Level 3.2</span>
-												</a>
-												<ul>
-													<li>
-														<a href="#">
-															<i class="entypo-flow-branch"></i>
-															<span class="title">Menu Level 4.1</span>
-														</a>
-													</li>
-												</ul>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">
-											<i class="entypo-flow-parallel"></i>
-											<span class="title">Menu Level 2.3</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="#">
-									<i class="entypo-flow-line"></i>
-									<span class="title">Menu Level 1.2</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="entypo-flow-line"></i>
-									<span class="title">Menu Level 1.3</span>
-								</a>
-							</li>
-						</ul>
+					</li>
+					<li>
+						<a href="index.php?r=suggestion">
+							<i class="linecons-star"></i>
+							<span class="title">评论管理</span>
+						</a>
 					</li>
 				</ul>
 						
@@ -768,116 +341,11 @@ use yii\bootstrap5\Html;
 							<span class="badge badge-green">15</span>
 						</a>
 							
-						<ul class="dropdown-menu messages">
+						<ul class="dropdown-menu TeamMemberss">
 							<li>
 									
 								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
 								
-									<li class="active"><!-- "active" class means message is unread -->
-										<a href="#">
-											<span class="line">
-												<strong>Luc Chartier</strong>
-												<span class="light small">- yesterday</span>
-											</span>
-											
-											<span class="line desc small">
-												This ain��t our first item, it is the best of the rest.
-											</span>
-										</a>
-									</li>
-									
-									<li class="active">
-										<a href="#">
-											<span class="line">
-												<strong>Salma Nyberg</strong>
-												<span class="light small">- 2 days ago</span>
-											</span>
-											
-											<span class="line desc small">
-												Oh he decisively impression attachment friendship so if everything. 
-											</span>
-										</a>
-									</li>
-									
-									<li>
-										<a href="#">
-											<span class="line">
-												Hayden Cartwright
-												<span class="light small">- a week ago</span>
-											</span>
-											
-											<span class="line desc small">
-												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
-											</span>
-										</a>
-									</li>
-									
-									<li>
-										<a href="#">
-											<span class="line">
-												Sandra Eberhardt
-												<span class="light small">- 16 days ago</span>
-											</span>
-											
-											<span class="line desc small">
-												On so attention necessary at by provision otherwise existence direction.
-											</span>
-										</a>
-									</li>
-									
-									<!-- Repeated -->
-									
-									<li class="active"><!-- "active" class means message is unread -->
-										<a href="#">
-											<span class="line">
-												<strong>Luc Chartier</strong>
-												<span class="light small">- yesterday</span>
-											</span>
-											
-											<span class="line desc small">
-												This ain��t our first item, it is the best of the rest.
-											</span>
-										</a>
-									</li>
-									
-									<li class="active">
-										<a href="#">
-											<span class="line">
-												<strong>Salma Nyberg</strong>
-												<span class="light small">- 2 days ago</span>
-											</span>
-											
-											<span class="line desc small">
-												Oh he decisively impression attachment friendship so if everything. 
-											</span>
-										</a>
-									</li>
-									
-									<li>
-										<a href="#">
-											<span class="line">
-												Hayden Cartwright
-												<span class="light small">- a week ago</span>
-											</span>
-											
-											<span class="line desc small">
-												Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
-											</span>
-										</a>
-									</li>
-									
-									<li>
-										<a href="#">
-											<span class="line">
-												Sandra Eberhardt
-												<span class="light small">- 16 days ago</span>
-											</span>
-											
-											<span class="line desc small">
-												On so attention necessary at by provision otherwise existence direction.
-											</span>
-										</a>
-									</li>
 									
 								</ul>
 								
@@ -885,7 +353,7 @@ use yii\bootstrap5\Html;
 							
 							<li class="external">
 								<a href="blank-sidebar.html">
-									<span>All Messages</span>
+									<span>All TeamMemberss</span>
 									<i class="fa-link-ext"></i>
 								</a>
 							</li>
@@ -908,89 +376,7 @@ use yii\bootstrap5\Html;
 							
 							<li>
 								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
-									<li class="active notification-success">
-										<a href="#">
-											<i class="fa-user"></i>
-											
-											<span class="line">
-												<strong>New user registered</strong>
-											</span>
-											
-											<span class="line small time">
-												30 seconds ago
-											</span>
-										</a>
-									</li>
 									
-									<li class="active notification-secondary">
-										<a href="#">
-											<i class="fa-lock"></i>
-											
-											<span class="line">
-												<strong>Privacy settings have been changed</strong>
-											</span>
-											
-											<span class="line small time">
-												3 hours ago
-											</span>
-										</a>
-									</li>
-									
-									<li class="notification-primary">
-										<a href="#">
-											<i class="fa-thumbs-up"></i>
-											
-											<span class="line">
-												<strong>Someone special liked this</strong>
-											</span>
-											
-											<span class="line small time">
-												2 minutes ago
-											</span>
-										</a>
-									</li>
-									
-									<li class="notification-danger">
-										<a href="#">
-											<i class="fa-calendar"></i>
-											
-											<span class="line">
-												John cancelled the event
-											</span>
-											
-											<span class="line small time">
-												9 hours ago
-											</span>
-										</a>
-									</li>
-									
-									<li class="notification-info">
-										<a href="#">
-											<i class="fa-database"></i>
-											
-											<span class="line">
-												The server is status is stable
-											</span>
-											
-											<span class="line small time">
-												yesterday at 10:30am
-											</span>
-										</a>
-									</li>
-									
-									<li class="notification-warning">
-										<a href="#">
-											<i class="fa-envelope-o"></i>
-											
-											<span class="line">
-												New comments waiting approval
-											</span>
-											
-											<span class="line small time">
-												last week
-											</span>
-										</a>
-									</li>
 								</ul>
 							</li>
 							
@@ -1074,190 +460,126 @@ use yii\bootstrap5\Html;
 			<div class="page-title">
 				
 				<div class="title-env">
-					<h1 class="title">Vector Maps</h1>
-					<p class="description">Vector maps variants using jQuery plugin jVectorMap</p>
+					<h1 class="title">Russian-Ukraine War</h1>
+					<p class="description">南开大学计算机互联网数据库开发课程项目</p>
+					<p class="description">Nankai University Internet Database Development Course Project for Computer Science and Technology</p>
 				</div>
 				
 					<div class="breadcrumb-env">
 					
 								<ol class="breadcrumb bc-1">
 									<li>
-							<a href="dashboard-1.html"><i class="fa-home"></i>Home</a>
+							<a href=#><i class="fa-home"></i>Home</a>
 						</li>
 								<li>
 						
-										<a href="extra-gallery.html">Extra</a>
+										<a href="index.php?r=team-members">Members</a>
 								</li>
-							<li>
+								<li>
 						
-										<a href="extra-maps-google.html">Maps</a>
-								</li>
-							<li class="active">
-						
-										<strong>Vector Map</strong>
+										<a href="index.php?r=suggestion">Suggestions</a>
 								</li>
 								</ol>
 								
 				</div>
 					
 			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">EU Greenhouse Gas Emissions</h3>
-					<div class="panel-options">
-						<a href="#" data-toggle="panel">
-							<span class="collapse-icon">&ndash;</span>
-							<span class="expand-icon">+</span>
-						</a>
-						<a href="#" data-toggle="remove">
-							&times;
-						</a>
-					</div>
-				</div>
-				<div class="panel-body">
+				
+<!-- card -->
+<div class="card bg-primary text-white shadow-primary card-h-100">
+    <!-- card body -->
+    <div class="card-body p-0">
+        <div id="carouselExampleCaptions" class="carousel slide text-center widget-carousel" data-bs-ride="carousel">                                                   
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="text-center p-4">
+                        <i class="mdi mdi-bitcoin widget-box-1-icon"></i>
+                        <div class="avatar-md m-auto">
+                            <span class="avatar-title rounded-circle bg-soft-light text-white font-size-24">
+                                <i class="mdi mdi-currency-btc"></i>
+                            </span>
+                        </div>
+                        <h4 class="mt-3 lh-base fw-normal text-white"><b>俄乌战争</b></h4>
+                        <p class="text-white-50 font-size-13">  俄乌战争（乌克兰语：російсько-українська війна; 俄语：российско-украинская война）是2014年2月20日起俄罗斯与乌克兰之间爆发的一场旷日持久的混合战争，前期以低强度战争及代理人战争形式进行。2022年2月24日，俄白联盟以“非军事化、去纳粹化”为由全面入侵乌克兰，冲突当日起正式白热化为全面战争，并迅速发展为第二次世界大战以来欧洲最大规模的战争。
+
+		引发战争的深层原因包括1991年苏联解体后此地的“乌克兰化、去俄罗斯化”、境内俄裔俄罗斯民族主义所致国族认同分裂、“北约东扩”引发俄罗斯的不安全感、俄罗斯在前苏联地区重建影响力的计划，导火索为推翻了维克托·亚努科维奇亲俄政权的2014年乌克兰亲欧盟示威运动，以及随后的克里米亚危机、顿巴斯分离主义，这场战争围绕着乌克兰东南部的克里米亚和东部的顿巴斯地区的地位展开。 </p>
+                                                                
+                    </div>
+                </div>
+				<div class="carousel-item">
+                    <div class="text-center p-4">
+                	    <i class="mdi mdi-ethereum widget-box-1-icon"></i>
+                        <div class="avatar-md m-auto">
+                            <span class="avatar-title rounded-circle bg-soft-light text-white font-size-24">
+                                <i class="mdi mdi-ethereum"></i>
+                        	</span>
+                        </div>
+						<h4 class="mt-3 lh-base fw-normal text-white"><b>互联网数据库开发</b> </h4>
+						<p class="text-white-50 font-size-13"> 
+						数据库技术是信息系统的一个核心技术。是一种计算机辅助管理数据的方法，它研究如何组织和存储数据，如何高效地获取和处理数据。是通过研究数据库的结构、存储、设计、管理以及应用的基本理论和实现方法，并利用这些理论来实现对数据库中的数据进行处理、分析和理解的技术。
+						
+						Web 开发是为 Internet 或 Intranet 构建和维护网站的过程，该网站可通过 Web 浏览器访问并托管在本地硬件或云中的服务器上。这包括从单个纯文本网页到复杂 Web 应用程序的所有内容。开发网站时的主要方法包括编码和网络标记。然而，还有许多开发任务也涉及到 Web 开发，例如脚本、安全配置、内容开发和电子商务基础设施。
+						
 					
-					<div class="row">
-						<div class="col-sm-6">
-							
-							<script type="text/javascript">
-								jQuery(document).ready(function($)
-								{
-									var map = $("#italy");
-										map.vectorMap({
-											map: 'it_mill_en',
-											backgroundColor: '#FFF',
-											normalizeFunction: 'polynomial',
-											markersSelectable: true,
-											regionStyle: {
-											  initial: {
-												"fill": '#ebebeb',
-												"fill-opacity": 0.9,
-												"stroke": '#ccc',
-												"stroke-width": 1,
-												"stroke-opacity": 1
-											  },
-											  hover: {
-												"fill-opacity": 1,
-												"fill": "#ddd"
-											  }
-											},
-											markerStyle: {
-												initial: {
-													fill: '#68b828',
-													"stroke": "#fff"
-												},
-												selected: {
-													fill: '#7c38bc'
-												}
-											},
-											markers: [
-												{latLng: [41.87, 12.48], name: 'Rome'},
-												{latLng: [45.46, 9.18], name: 'Milan'},
-												{latLng: [41.11, 16.87], name: 'Bari'},
-												{latLng: [37.51, 15.08], name: 'Catania'},
-											]
-										});
-								});
-							</script>
-							
-							<div id="italy" style="height: 380px;"></div>
-							
+
+						</p>
 						</div>
-						<div class="col-sm-6">
-							<strong class="text-primary h3">Examining Country &ndash; Italy</strong>
-							<br />
-							<br />
-							<p>Proper resources reduce carbon emissions resolve crisis situation, advocate, innovation.</p>
-							
-							<div class="vspacer v3"></div>
-							
-							<div class="label label-secondary">FQ 2014</div>
-			
-							<ul class="list-unstyled list-margin">
-								<li>Carbon Emission: <strong>3.18</strong> Tonnes CO2</li>
-								<li>Reduction from previous year: <strong>20.7%</strong> g/km</li>
-								<li>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-info" style="width: 42.5%;"></div>
-									</div>
-								</li>
-							</ul>
-							
-							
-							<div class="label label-secondary">LQ 2013</div>
-			
-							<ul class="list-unstyled list-margin">
-								<li>Carbon Emission: <strong>6.42</strong> Tonnes CO2</li>
-								<li>Reduction from previous year: <strong>15.9%</strong> g/km</li>
-								<li>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-warning" style="width: 65.4%;"></div>
-									</div>
-								</li>
-							</ul>
-							
+                </div>
+    
+                <div class="carousel-item">
+                    <div class="text-center p-4">
+                	    <i class="mdi mdi-ethereum widget-box-1-icon"></i>
+                        <div class="avatar-md m-auto">
+                            <span class="avatar-title rounded-circle bg-soft-light text-white font-size-24">
+                                <i class="mdi mdi-ethereum"></i>
+                        	</span>
+                        </div>
+                        <h4 class="mt-3 lh-base fw-normal text-white"><b>Russian-Ukraine</b> War</h4>
+                        <p class="text-white-50 font-size-13"> The Russo-Ukrainian War (Ukrainian: російсько-українська війна; Russian: российско-украинская война) was a prolonged hybrid war between Russia and Ukraine that began on 20 February 2014, 
+							initially in the form of a low-intensity war and a proxy war. On 24 February 2022, the Russian-Belarusian alliance invaded Ukraine on the grounds of "demilitarisation and de-Nazification", 
+							and the conflict officially turned into a full-scale war from that day onwards, which quickly developed into the largest war in Europe since the Second World War. 
+							The underlying causes of the war included the "Ukrainization and de-Russification" of the region following the collapse of the Soviet Union in 1991, the fragmentation of national identity due to Russian nationalism in the country, 
+							Russian insecurity caused by the "expansion of NATO to the east", Russia's plans to reestablish its influence in the former Soviet Union, and the "rebuilding of its influence in the region". 
+							 </p>
+                                                                
+                    </div>
+                </div>
+				
+				<div class="carousel-item">
+                    <div class="text-center p-4">
+                	    <i class="mdi mdi-ethereum widget-box-1-icon"></i>
+                        <div class="avatar-md m-auto">
+                            <span class="avatar-title rounded-circle bg-soft-light text-white font-size-24">
+                                <i class="mdi mdi-ethereum"></i>
+                        	</span>
+                        </div>
+						<h4 class="mt-3 lh-base fw-normal text-white"><b>Internet Database Development</b> </h4>
+						<p class="text-white-50 font-size-13"> 
+						Database technology is a core technology of information systems. It is a computer-aided approach to managing data, which examines how data is organised and stored, and how it can be accessed and processed efficiently. It is a technology that processes, analyses and understands the data in a database by studying the basic theory and implementation methods of database structure, storage, design, management and application, and using these theories to realise the data in the database.
+
+						Web development is the process of building and maintaining a website for the Internet or Intranet that is accessible through a web browser and hosted on local hardware or on a server in the cloud. This includes everything from a single plain text web page to a complex web application. The main methods used when developing a website include coding and web markup. However, there are many other development tasks that also involve web development, such as scripting, security configuration, content development and e-commerce infrastructure.
+
+
+						</p>
 						</div>
-					</div>
-					
-				</div>
-			</div>
+                </div>
+            <!-- end carousel-item -->
+            </div>
+        </div>
+    <!-- end carousel -->
+    </div>
+    <!-- end card body -->
+</div>
+<!-- end card -->
+
+
+
+
+
+
+
 			
-			
-			
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">World Map</h3>
-					<div class="panel-options">
-						<a href="#" data-toggle="panel">
-							<span class="collapse-icon">&ndash;</span>
-							<span class="expand-icon">+</span>
-						</a>
-						<a href="#" data-toggle="remove">
-							&times;
-						</a>
-					</div>
-				</div>
-				<div class="panel-body">
-							
-					<script type="text/javascript">
-						jQuery(document).ready(function($)
-						{
-							var map = $("#world");
-							
-							var gdpData = { "AF": 16.63, "AL": 11.58, "DZ": 158.97, "AO": 85.81, "AG": 1.1, "AR": 351.02, "AM": 8.83, "AU": 1219.72, "AT": 366.26, "AZ": 52.17, "BS": 7.54, "BH": 21.73, "BD": 105.4, "BB": 3.96, "BY": 52.89, "BE": 461.33, "BZ": 1.43, "BJ": 6.49, "BT": 1.4, "BO": 19.18, "BA": 16.2, "BW": 12.5, "BR": 2023.53, "BN": 11.96, "BG": 44.84, "BF": 8.67, "BI": 1.47, "KH": 11.36, "CM": 21.88, "CA": 1563.66, "CV": 1.57, "CF": 2.11, "TD": 7.59, "CL": 199.18, "CN": 5745.13, "CO": 283.11, "KM": 0.56, "CD": 12.6, "CG": 11.88, "CR": 35.02, "CI": 22.38, "HR": 59.92, "CY": 22.75, "CZ": 195.23, "DK": 304.56, "DJ": 1.14, "DM": 0.38, "DO": 50.87, "EC": 61.49, "EG": 216.83, "SV": 21.8, "GQ": 14.55, "ER": 2.25, "EE": 19.22, "ET": 30.94, "FJ": 3.15, "FI": 231.98, "FR": 2555.44, "GA": 12.56, "GM": 1.04, "GE": 11.23, "DE": 3305.9, "GH": 18.06, "GR": 305.01, "GD": 0.65, "GT": 40.77, "GN": 4.34, "GW": 0.83, "GY": 2.2, "HT": 6.5, "HN": 15.34, "HK": 226.49, "HU": 132.28, "IS": 12.77, "IN": 1430.02, "ID": 695.06, "IR": 337.9, "IQ": 84.14, "IE": 204.14, "IL": 201.25, "IT": 2036.69, "JM": 13.74, "JP": 5390.9, "JO": 27.13, "KZ": 129.76, "KE": 32.42, "KI": 0.15, "KR": 986.26, "UNDEFINED": 5.73, "KW": 117.32, "KG": 4.44, "LA": 6.34, "LV": 23.39, "LB": 39.15, "LS": 1.8, "LR": 0.98, "LY": 77.91, "LT": 35.73, "LU": 52.43, "MK": 9.58, "MG": 8.33, "MW": 5.04, "MY": 218.95, "MV": 1.43, "ML": 9.08, "MT": 7.8, "MR": 3.49, "MU": 9.43, "MX": 1004.04, "MD": 5.36, "MN": 5.81, "ME": 3.88, "MA": 91.7, "MZ": 10.21, "MM": 35.65, "NA": 11.45, "NP": 15.11, "NL": 770.31, "NZ": 138, "NI": 6.38, "NE": 5.6, "NG": 206.66, "NO": 413.51, "OM": 53.78, "PK": 174.79, "PA": 27.2, "PG": 8.81, "PY": 17.17, "PE": 153.55, "PH": 189.06, "PL": 438.88, "PT": 223.7, "QA": 126.52, "RO": 158.39, "RU": 1476.91, "RW": 5.69, "WS": 0.55, "ST": 0.19, "SA": 434.44, "SN": 12.66, "RS": 38.92, "SC": 0.92, "SL": 1.9, "SG": 217.38, "SK": 86.26, "SI": 46.44, "SB": 0.67, "ZA": 354.41, "ES": 1374.78, "LK": 48.24, "KN": 0.56, "LC": 1, "VC": 0.58, "SD": 65.93, "SR": 3.3, "SZ": 3.17, "SE": 444.59, "CH": 522.44, "SY": 59.63, "TW": 426.98, "TJ": 5.58, "TZ": 22.43, "TH": 312.61, "TL": 0.62, "TG": 3.07, "TO": 0.3, "TT": 21.2, "TN": 43.86, "TR": 729.05, "TM": 0, "UG": 17.12, "UA": 136.56, "AE": 239.65, "GB": 2258.57, "US": 14624.18, "UY": 40.71, "UZ": 37.72, "VU": 0.72, "VE": 285.21, "VN": 101.99, "YE": 30.02, "ZM": 15.69, "ZW": 5.57 };
-							
-							var vmap = map.vectorMap({
-									map: 'world_mill_en',
-									backgroundColor: '#FFF',
-									regionStyle: {
-									  initial: {
-										"fill": '#ebebeb',
-										"fill-opacity": 0.9,
-										"stroke": '#ccc',
-										"stroke-width": .7,
-										"stroke-opacity": .5
-									  },
-									  hover: {
-										"fill-opacity": 1,
-										"fill": "#ddd"
-									  }
-									},
-							        series: {
-										regions: [{
-											values: gdpData,
-											scale: ['#0c88b8', '#cbf1ff'],
-											normalizeFunction: 'polynomial'
-										}]
-									},
-								});
-							
-						});
-					</script>
-					
-					<div id="world" style="height: 400px;"></div>
-					
-				</div>
-			</div>
 			<!-- Main Footer -->
 			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
 			<!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
@@ -1268,9 +590,9 @@ use yii\bootstrap5\Html;
 				
 					<!-- Add your copyright text here -->
 					<div class="footer-text">
-						&copy; 2014 
-						<strong>Xenon</strong> 
-						More Templates <a href="http://bulamao.taobao.com" target="_blank" title="����è">����è</a> - Collect from <a href="http://www.dmaku.com" title="��ҳģ��" target="_blank">��ҳģ��</a>
+						&copy; 2023 
+						<strong>404 NOT FOUND</strong> 
+						已把源代码上传到了Github，大家可以通过如下地址下载： <a href="https://github.com/TwinIsland-CCC/404-R-U-war.git" target="_blank" title=" ">GitHub链接</a> 
 					</div>
 					
 					
@@ -1393,7 +715,7 @@ use yii\bootstrap5\Html;
 					<li class="odd">
 						<span class="user">Brandon S. Young</span>
 						<span class="time">09:25</span>
-						<p>This message is pre-queued.</p>
+						<p>This TeamMembers is pre-queued.</p>
 					</li>
 					<li>
 						<span class="user">Brandon S. Young</span>
@@ -1408,7 +730,7 @@ use yii\bootstrap5\Html;
 				</ul>
 				
 				<div class="chat-textarea">
-					<textarea class="form-control autogrow" placeholder="Type your message"></textarea>
+					<textarea class="form-control autogrow" placeholder="Type your TeamMembers"></textarea>
 				</div>
 				
 			</div>
