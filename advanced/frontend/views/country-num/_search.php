@@ -1,30 +1,25 @@
 <?php
-/**
- *  Team: 404NotFound
- *  Coding by Luo XinKe 2013622
- *            2023/2/8
- *  Russia-Ukraine war weapons display
- */
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var frontend\models\WeaponsCompany3Search $model */
+/** @var frontend\models\CountryNumSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="weapons-company3-search">
+<div class="country-num-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'E_name') ?>
+    <?= $form->field($model, 'country_name') ?>
 
-    <?= $form->field($model, 'url') ?>
+    <?= $form->field($model, 'cid') ?>
 
-    <?= $form->field($model, 'C_name') ?>
+    <?= $form->field($model, 'num') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

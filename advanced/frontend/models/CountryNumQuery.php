@@ -1,18 +1,13 @@
 <?php
-/**
- *  Team: 404NotFound
- *  Coding by Luo XinKe 2013622
- *            2023/2/8
- *  Russia-Ukraine war weapons display
- */
+
 namespace frontend\models;
 
 /**
- * This is the ActiveQuery class for [[WeaponsCompany3]].
+ * This is the ActiveQuery class for [[CountryNum]].
  *
- * @see WeaponsCompany3
+ * @see CountryNum
  */
-class WeaponsCompany3Query extends \yii\db\ActiveQuery
+class CountryNumQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -21,7 +16,7 @@ class WeaponsCompany3Query extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return WeaponsCompany3[]|array
+     * @return CountryNum[]|array
      */
     public function all($db = null)
     {
@@ -30,7 +25,7 @@ class WeaponsCompany3Query extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return WeaponsCompany3|array|null
+     * @return CountryNum|array|null
      */
     public function one($db = null)
     {

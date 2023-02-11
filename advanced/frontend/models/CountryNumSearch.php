@@ -1,20 +1,15 @@
 <?php
-/**
- *  Team: 404NotFound
- *  Coding by Luo XinKe 2013622
- *            2023/2/8
- *  Russia-Ukraine war weapons display
- */
+
 namespace frontend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\WeaponsCompany3;
+use frontend\models\CountryNum;
 
 /**
- * WeaponsCompany3Search represents the model behind the search form of `frontend\models\WeaponsCompany3`.
+ * CountryNumSearch represents the model behind the search form of `frontend\models\CountryNum`.
  */
-class WeaponsCompany3Search extends WeaponsCompany3
+class CountryNumSearch extends CountryNum
 {
     /**
      * {@inheritdoc}
@@ -22,7 +17,8 @@ class WeaponsCompany3Search extends WeaponsCompany3
     public function rules()
     {
         return [
-            [['E_name', 'url', 'C_name'], 'safe'],
+            [['country_name'], 'safe'],
+            [['cid', 'num'], 'integer'],
         ];
     }
 
@@ -44,7 +40,7 @@ class WeaponsCompany3Search extends WeaponsCompany3
      */
     public function search($params)
     {
-        $query = WeaponsCompany3::find();
+        $query = CountryNum::find();
 
         // add conditions that should always apply here
 
@@ -61,9 +57,12 @@ class WeaponsCompany3Search extends WeaponsCompany3
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'E_name', $this->E_name])
-            ->andFilterWhere(['like', 'url', $this->url])
-            ->andFilterWhere(['like', 'C_name', $this->C_name]);
+        $query->andFilterWhere([
+            'cid' => $this->cid,
+            'num' => $this->num,
+        ]);
+
+        $query->andFilterWhere(['like', 'country_name', $this->country_name]);
 
         return $dataProvider;
     }

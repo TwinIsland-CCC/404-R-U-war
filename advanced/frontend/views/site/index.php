@@ -15,6 +15,7 @@
 
 $this->title = 'R-U War intergrade';
 
+use frontend\models\CountryNum;
 use frontend\models\RuNews;
 use frontend\models\Weapons;
 use frontend\models\RCasualties;
@@ -266,7 +267,7 @@ if (Yii::$app->session->hasFlash('success_save'))
                 </div>
                 <div class="row mb100 wow fadeInUp">
                     <div class="col-md-6">
-                        <p>这个网站是南开大学《互联网数据库开发》课程404NotFound小组的小组作业。网站中展现了与俄乌战争有关的不同数据，包括战线图、损失数据图表、时间线及重大事件、纽约时报新闻搬运以及用到的武器展示模块，并在最后附上了建议与反馈模块。我们以用户体验作为第一指标，选取了合适的网站模板并精心设计布局，保证用户访问网站时得到良好体验的同时，能够获取到一些有用的信息。</p>
+                        <p>这个网站是南开大学《互联网数据库开发》课程404NotFound小组的小组作业。网站中展现了与俄乌战争有关的<strong>不同数据</strong>，包括<strong>战线图、损失数据图表、时间线及重大事件、纽约时报新闻搬运以及用到的武器展示模块</strong>，并在最后附上了建议与反馈模块。我们以用户体验作为第一指标，选取了合适的网站模板并精心设计布局，保证用户访问网站时得到良好体验的同时，能够获取到一些有用的信息。</p>
                         <p>我们的小组成员包括：卻铭恺、王一如、苏雨佳、罗昕珂（从左到右），您可以将鼠标悬停到对应的头像上，以查看我们的姓名、学号及座右铭。</p>
                         <p class="mt"><a href="#contact" class="btn btn-primary btn-theme page-scroll">Get In Touch</a></p>
                     </div>
@@ -355,7 +356,7 @@ if (Yii::$app->session->hasFlash('success_save'))
             <div class="row">
                 <div class="col s12 m12 l12">
                     <h2 class="section-heading"><strong>Timeline</strong> Of the Russian-Ukrainian war</h2>
-                    <a href="<?php echo Url::to(['time-info/index']); ?>" target="_blank">learn more >></a>
+                    <a href="<?php echo Url::to(['time-info/index']); ?>" class="btn btn-theme" target="_blank">learn more >></a>
                     <ul class="timeline">
                         <li class="event" data-date="2014/4">
                             <h3>War in Donbass</h3>
@@ -396,6 +397,7 @@ if (Yii::$app->session->hasFlash('success_save'))
             </div>
         </div>
     </section>
+
     <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
@@ -454,6 +456,9 @@ if (Yii::$app->session->hasFlash('success_save'))
                 <div data-filter=".weapons-loss" class="btn btn-theme cbp-filter-item l">
                     weapons loss
                 </div>
+                <div data-filter=".company-propotion" class="btn btn-theme cbp-filter-item l">
+                    company proportion
+                </div>
             </div>
             <div id="grid-container" class="cbp-l-grid-work">
                 <div class="cbp-item casualty">
@@ -474,6 +479,13 @@ if (Yii::$app->session->hasFlash('success_save'))
                     <div class="row1">
                         <div class="item">
                             <div id="echarts3" style="width:1000px ; height:550px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cbp-item company-propotion" id="l">
+                    <div class="row1">
+                        <div class="item">
+                            <div id="echarts4" style="width:1000px ; height:550px;"></div>
                         </div>
                     </div>
                 </div>
@@ -968,61 +980,30 @@ if (Yii::$app->session->hasFlash('success_save'))
                     <div class="col-md-3 col-sm-6">
                         <div class="widget about-us-widget">
                             <h4 class="widget-title"><strong>Global</strong> Coverage</h4>
-                            <p>Was drawing natural fat respect husband. An as noisy an offer drawn blush place. These tried for way joy wrote witty. In mr began music weeks after at begin.</p>
+                            <p>The site presents different data including battle line graphs, loss data charts, timeline and major events, New York Times news handling and weapons display modules used, and a suggestion and feedback module at the end. </p>
                         </div>
                     </div>
 
                     <div class="col-md-3 col-sm-6">
                         <div class="widget">
-                            <h4 class="widget-title"><strong>Recent</strong> Tweets</h4>
-                            <script type="text/javascript">
-                                jQuery(function($) {
-                                    $('.twitter-feed').twittie({
-                                        username: 'DistinctThemes',
-                                        apiPath: 'twitter/tweet.php',
-                                        dateFormat: '%b. %d, %Y',
-                                        template: '<div class="row"><div class="col-xs-3 nopaddingright">{{avatar}}</div><div class="col-xs-9"><p>{{tweet}}</p></div></div>',
-                                        count: 10
-                                    }, function() {
-                                        setInterval(function() {
-                                            var item = $('.twitter-feed ul').find('li:first');
-                                            item.animate({
-                                                marginLeft: '0px',
-                                                'opacity': '0'
-                                            }, 500, function() {
-                                                $(this).detach().appendTo('.twitter-feed ul').removeAttr('style');
-                                            });
-                                        }, 8000);
-                                        jQuery('.twitter-feed li img').attr('src', function(i, src) {
-                                            return src.replace('_normal', '');
-                                        });
-                                    });
-                                });
-                            </script>
-                            <div class="twitter-feed"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="widget">
-                            <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                            <h4 class="widget-title"><strong>Team</strong> Members</h4>
                             <div>
                                 <div class="media">
                                     <div class="pull-left">
-                                        <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
+                                        <img src="assets/img/team/h1-s.jpg" class="widget-img" alt="image">
                                     </div>
                                     <div class="media-body">
-                                        <span class="media-heading"><a href="#">Blog Post A</a></span>
-                                        <small class="muted">Posted 14 April 2019</small>
+                                        <span class="media-heading"><a href="#">卻铭恺</a></span>
+                                        <small class="muted">——穿过乌云。</small>
                                     </div>
                                 </div>
                                 <div class="media">
                                     <div class="pull-left">
-                                        <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="">
+                                        <img src="assets/img/team/h2-s.jpg" class="widget-img" alt="image">
                                     </div>
                                     <div class="media-body">
-                                        <span class="media-heading"><a href="#">Blog Post B</a></span>
-                                        <small class="muted">Posted 14 April 2019</small>
+                                        <span class="media-heading"><a href="#">王一如</a></span>
+                                        <small class="muted">——carpe diem.</small>
                                     </div>
                                 </div>
                             </div>
@@ -1031,20 +1012,44 @@ if (Yii::$app->session->hasFlash('success_save'))
 
                     <div class="col-md-3 col-sm-6">
                         <div class="widget">
-                            <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                            <h4 class="widget-title"><strong>Team</strong> Members</h4>
+                            <div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="assets/img/team/h3-s.jpg" class="widget-img" alt="image">
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="media-heading"><a href="#">苏雨佳</a></span>
+                                        <small class="muted">——我与我周旋久，宁做我。</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="assets/img/team/h4-s.jpg" class="widget-img" alt="image">
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="media-heading"><a href="#">罗昕珂</a></span>
+                                        <small class="muted">——认真工作，早点睡觉。</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h4 class="widget-title"><strong>Latest</strong> Topics</h4>
                             <div class="tagcloud">
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Local</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Business</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Media</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Photogtraphy</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Aid</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Fashion</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">News</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Cars</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Global Affairs</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Music</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Downloads</a>
-                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">MP3</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Russian</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Ukraine</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">War</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Time</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Feast</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Battle</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Rival</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Profit</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">Key</a>
+                                <a href="#" class="tag-link btn btn-theme btn-white btn-xs" title="3 topics">U.S</a>
                             </div>
                         </div>
                     </div>
@@ -1493,5 +1498,69 @@ if (Yii::$app->session->hasFlash('success_save'))
             // 使用刚指定的配置项和数据显示图表。
             myChart3.setOption(option3);
         });
+    </script>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart4 = echarts.init(document.getElementById('echarts4'), null, {
+            devicePixelRatio: 2.5
+        });
+        // 指定图表的配置项和数据
+            // prettier-ignore
+        var data4 = [
+            <?php
+            $model4 = CountryNum::findBySql('select * from country_num;')->all();
+            $index = 0;
+            $pre = 0;
+            foreach ($model4 as $item) {
+                echo ('{value: '. $item->num .', name : "'. $item->country_name .'"},');
+            }
+            ?>
+            ]
+        var option4 = {
+            title: {
+                    text: 'The Proportion Of Weapons In The War',
+                    left: '34%',
+                    fontSize: 35,
+                    fontStyle: 'bold'
+                },
+                color: [
+                    '#988D80',
+                    '#7F4620',
+                    '#624F40',
+                    '#223B3A',
+                    '#532B23',
+                    '#505B59',
+                    '#343231',
+                    '#714641',
+                    '#7289ab',
+                    '#5C4F43',
+                    '#8E5118',
+                    '#998A7E',
+                    '#B6B6B6',
+                    '#414141'
+                ],
+
+            series: [
+                {
+                type: 'pie',
+                data: data4,
+                        avoidLabelOverlap: false,
+                        selectedMode: 'single',
+                        label: {
+                            position: 'outer',
+                            fontSize: 14
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        }
+                }
+            ]
+        };
+        myChart4.setOption(option4);
     </script>
 </body>
