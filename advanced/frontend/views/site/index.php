@@ -456,7 +456,7 @@ if (Yii::$app->session->hasFlash('success_save'))
                 <div data-filter=".weapons-loss" class="btn btn-theme cbp-filter-item l">
                     weapons loss
                 </div>
-                <div data-filter=".company-propotion" class="btn btn-theme cbp-filter-item l">
+                <div data-filter=".company-propotion" class="btn btn-theme cbp-filter-item p">
                     company proportion
                 </div>
             </div>
@@ -482,9 +482,9 @@ if (Yii::$app->session->hasFlash('success_save'))
                         </div>
                     </div>
                 </div>
-                <div class="cbp-item company-propotion" id="l">
+                <div class="cbp-item company-propotion" id="p">
                     <div class="row1">
-                        <div class="item">
+                        <div class="echarts-item">
                             <div id="echarts4" style="width:1000px ; height:550px;"></div>
                         </div>
                     </div>
@@ -1507,11 +1507,13 @@ if (Yii::$app->session->hasFlash('success_save'))
             ?>
             ]
         var option4 = {
-            title: {
+                title: {
                     text: 'The Proportion Of Weapons In The War',
-                    left: '34%',
-                    fontSize: 35,
-                    fontStyle: 'bold'
+                    left: '18%',
+                    textStyle:{
+                        fontSize:30, //字体大小
+                        color:'#221414'
+                    }
                 },
                 color: [
                     '#988D80',
