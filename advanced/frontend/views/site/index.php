@@ -435,9 +435,9 @@ if (Yii::$app->session->hasFlash('success_save'))
         </div>
     </section>
 
-    <!--战争损失图 使用echarts-->
-    <section id="losses" class="white section-wrapper">
-        <div class="section-inner nopaddingbottom">
+   <!--战争损失图 使用echarts-->
+    <section class="white echarts" id="losses">
+        <div class="section-inner echarts" >
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 wow fadeInDown">
@@ -460,25 +460,25 @@ if (Yii::$app->session->hasFlash('success_save'))
                     company proportion
                 </div>
             </div>
-            <div id="grid-container" class="cbp-l-grid-work">
-                <div class="cbp-item casualty">
-                    <div class="row1">
-                        <div class="item">
-                            <div id="echarts1" style="width:1000px ; height:550px;"></div>
+            <div id="grid-container" class="cbp-l-grid-work" >
+                <div class="cbp-item casualty" >
+                    <div class="row1" >
+                        <div class="echarts-item" >
+                            <div id="echarts1" style="width:1000px ; height: 600px;"></div>
                         </div>
                     </div>
                 </div>
                 <div class="cbp-item weapons-ratio " id="r">
                     <div class="row1">
-                        <div class="item">
-                            <div id="echarts2" style="width:1000px ; height:550px;"></div>
+                        <div class="echarts-item">
+                            <div id="echarts2" style="width:1000px ; height:600px;"></div>
                         </div>
                     </div>
                 </div>
                 <div class="cbp-item weapons-loss " id="l">
                     <div class="row1">
-                        <div class="item">
-                            <div id="echarts3" style="width:1000px ; height:550px;"></div>
+                        <div class="echarts-item">
+                            <div id="echarts3" style="width:1000px ; height:600px;"></div>
                         </div>
                     </div>
                 </div>
@@ -492,6 +492,7 @@ if (Yii::$app->session->hasFlash('success_save'))
             </div>
         </div>
     </section>
+    <!--     -->
 
     <section id="news" class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
         <div class="section-inner nopaddingbottom">
@@ -910,7 +911,7 @@ if (Yii::$app->session->hasFlash('success_save'))
         </div>
     </section>
 
-    <section id="contact-lower" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
+    <section id="contact" class="white section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg-bw.jpg" data-speed="0.7">
         <div class="section-inner padding">
             <div class="container">
                 <div class="row">
@@ -923,13 +924,6 @@ if (Yii::$app->session->hasFlash('success_save'))
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <!--<form method="post" action="insert()" id="contactform">
-                            <p><input type="text" class="form-control" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." /></p>
-                            <p><input type="text" class="form-control" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." /></p>
-                            <p><textarea name="suggestion" rows="5" class="form-control" id="suggestion" placeholder="Your Suggestion *" required data-validation-required-message="Please enter your suggestion."></textarea></p>
-                            <input class="btn btn-theme pull-right" type="submit" name="submit" value="Submit" onClick = "buttonClick();"/>
-                        </form>
-                        -->
                         <?php $form = ActiveForm::begin(); ?>
 
                         <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
@@ -1100,56 +1094,56 @@ if (Yii::$app->session->hasFlash('success_save'))
     </script>
 
     <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart1 = echarts.init(document.getElementById('echarts1'), null, {
-            devicePixelRatio: 2.5
-        });
+      // 基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('echarts1'),null, {devicePixelRatio: 2.5});
         const days = [
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-            '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24',
+            '1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12',
+            '13', '14', '15', '16', '17', '18','19', '20', '21', '22', '23', '24',
             '25', '26', '27', '28', '29', '30', '31'
         ];
         // prettier-ignore
         const months = [
-            'March', 'April', 'May', 'June', 'July',
+            'March', 'April', 'May','June', 'July', 
             'August', 'September', 'October', 'November', 'December'
         ];
         // prettier-ignore
         const data1 = [
-                <?php
-                $model = RCasualties::findBySql('select * from r_casualties where time<"2023-01-01" order by time asc;')->all();
-                $index = 0;
-                $pre = 0;
-                foreach ($model as $item) {
-                    $month = intval(substr(strval(($item->time)), 5, 2)) - 3;
-                    $day = intval(substr(strval(($item->time)), 8, 2)) - 1;
-                    $increase = $item->num - $pre;
-                    echo ('[' . $month . ',' . $day . ',' . $increase . '],');
-                    $pre = $item->num;
-                    if ($month == 1 && $month == 3 && $month == 6 && $month == 8) {
-                        if ($day == 29) {
-                            echo '[' . $month . ',30,0],';
-                        }
+        <?php 
+            $model=RCasualties::findBySql('select * from r_casualties where time<"2023-01-01" order by time asc;')->all();
+            $index=0;
+            $pre=0;
+            foreach($model as $item){
+                $month=intval(substr(strval(($item->time)),5,2))-3;
+                $day=intval(substr(strval(($item->time)),8,2))-1;
+                $increase=$item->num-$pre;
+                echo ('['.$month.','.$day.','.$increase.'],');  
+                $pre=$item->num;
+                if($month==1 && $month==3 && $month==6 && $month==8){
+                    if($day==29){
+                        echo '['.$month.',30,0],';
+
                     }
                 }
-                ?>
-            ]
-            .map(function(item) {
-                return [item[1], item[0], item[2] || '-'];
-            });
+            }
+        ?>]
+        .map(function (item) {
+            return [item[1], item[0], item[2] || '-'];
+        });
         var option1 = {
             title: {
                 text: 'Daily Casualties',
-                left: '43%',
-                fontSize: 35,
-                fontStyle: 'bold'
+                left: '38%',
+                textStyle:{
+                    fontSize:30, //字体大小
+                    color:'#3d495d'
+                }
             },
             tooltip: {
                 position: 'top'
             },
-            dataZoom: [{
-                type: 'inside'
-            }],
+             dataZoom: [{
+                 type: 'inside'
+             }],
             grid: {
                 height: '72%',
                 width: '85%',
@@ -1175,222 +1169,214 @@ if (Yii::$app->session->hasFlash('success_save'))
                 calculable: true,
                 orient: 'horizontal',
                 left: 'center',
-                bottom: '7%',
+                bottom: '0%',
                 inRange: {
                     color: ['#D9E9FF', "#0B69E3"]
                 }
             },
-            series: [{
-                name: 'Casualties Num',
-                type: 'heatmap',
-                data: data1,
-                label: {
-                    show: true
-                },
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+            series: [
+                {
+                    name: 'Casualties Num',
+                    type: 'heatmap',
+                    bottom: '5%',
+                    data: data1,
+                    label: {
+                        show: true
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
                     }
                 }
-            }]
+            ]
         };
         // 使用刚指定的配置项和数据显示图表。
         myChart1.setOption(option1);
+
     </script>
 
     <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart2 = echarts.init(document.getElementById('echarts2'), null, {
-            devicePixelRatio: 2.5
-        });
-        $.getJSON('assets/data/echarts2.json', function(data) {
-            var result = [];
-            var result1 = [];
-            var name = [];
-            var name1 = [];
-            $.each(data, function(i, item) {
-                var j = 0;
-                var flag = 0;
-                result1[i] = {
-                    'name': item.armsname,
-                    'value': item.num
-                };
-                name1[i] = item.armsname;
+      // 基于准备好的dom，初始化echarts实例
+      var myChart2 = echarts.init(document.getElementById('echarts2'),null, {devicePixelRatio: 2.5});
+      $.getJSON('assets/data/echarts2.json', function(data){
+        var result = [];
+        var result1 = [];
+        var name = [];
+        var name1 = [];
+        $.each(data, function(i,item){
+            var j=0;
+            var flag=0;
+            result1[i]={'name':item.armsname,'value':item.num};
+            name1[i]=item.armsname;
 
-                if (i == 0) {
-                    result.push({
-                        'name': item.category,
-                        'value': item.num
-                    })
-                    name[0] = item.category;
-                } else {
-                    while (j != result.length) {
-                        if (result[j]['name'] == item.category) {
-                            result[j]['value'] += item.num;
-                            flag = 1;
-                            break;
-                        }
-                        j += 1;
+            if(i==0){
+                result.push({'name':item.category,'value':item.num})
+                name[0]=item.category;
+            }
+            else{
+                while(j!=result.length) {
+                    if(result[j]['name']==item.category) {
+                        result[j]['value']+=item.num;
+                        flag=1;
+                        break;
                     }
-                    if (flag == 0) {
-                        result.push({
-                            'name': item.category,
-                            'value': item.num
-                        });
-                        name[j] = item.category;
-                    }
+                    j+=1;
                 }
-            });
-            //alert(name.length);
-            var option2 = {
-                title: {
-                    text: 'The Proportion Of Weapons In The War',
-                    left: '34%',
-                    fontSize: 35,
-                    fontStyle: 'bold'
-                },
-                legend: [{
-                        orient: 'vertical',
-                        left: '0%',
-                        top: '5%',
-                        textStyle: {
-                            fontSize: 14
-                        },
-                        data: name
-                    },
-                    {
-                        orient: 'vertical',
-                        left: '8%',
-                        top: '5%',
-                        textStyle: {
-                            fontSize: 12
-                        },
-                        data: name1
-                    }
-                ],
-                color: [
-                    '#988D80',
-                    '#7F4620',
-                    '#624F40',
-                    '#223B3A',
-                    '#532B23',
-                    '#505B59',
-                    '#343231',
-                    '#714641',
-                    '#7289ab',
-                    '#5C4F43',
-                    '#8E5118',
-                    '#998A7E',
-                    '#B6B6B6',
-                    '#414141'
-                ],
-                series: [{
-                        left: '20%',
-                        top: '8%',
-                        type: 'pie',
-                        radius: [0, '30%'],
-                        avoidLabelOverlap: false,
-                        selectedMode: 'single',
-                        label: {
-                            position: 'inner',
-                            fontSize: 14
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: '30',
-                                fontWeight: 'bold'
-                            }
-                        },
-                        data: result
-                    },
-                    {
-                        left: '20%',
-                        top: '8%',
-                        type: 'pie',
-                        radius: ['50%', '85%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            formatter: '{b|{b}：}{c}  {per|{d}%}  ',
-                            backgroundColor: '#F6F8FC',
-                            borderColor: '#8C8D8E',
-                            borderWidth: 1,
-                            borderRadius: 4,
-                            rich: {
-                                hr: {
-                                    borderColor: '#8C8D8E',
-                                    width: '100%',
-                                    borderWidth: 1,
-                                    height: 0
-                                },
-                                b: {
-                                    color: '#4C5058',
-                                    fontSize: 12,
-                                    fontWeight: 'bold',
-                                    lineHeight: 32
-                                },
-                                per: {
-                                    color: '#fff',
-                                    backgroundColor: '#4C5058',
-                                    padding: [3, 4],
-                                    fontSize: 12,
-                                    borderRadius: 4
-                                }
-                            }
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: '30',
-                                fontWeight: 'bold'
-                            }
-                        },
-                        itemStyle: {
-                            borderRadius: 10,
-                            borderColor: '#fff',
-                            borderWidth: 2
-                        },
-                        data: result1
-                    }
-                ]
-            };
-            // 使用刚指定的配置项和数据显示图表。
-            myChart2.setOption(option2);
+                if(flag==0){
+                    result.push({'name':item.category,'value':item.num});
+                    name[j]=item.category;
+                }
+            }
         });
+        //alert(name.length);
+        var option2 = {
+            title: {
+                text: 'The Proportion Of Weapons In The War',
+                left: '20%',
+                textStyle:{
+                    fontSize:30, //字体大小
+                    color:'#241e14'
+                }
+            },
+            legend: [
+                {
+                    orient: 'vertical',
+                    left: '0%',
+                    top: '5%',
+                    textStyle: {
+                        fontSize: 14
+                    },
+                    data:name
+                },
+                {
+                    orient: 'vertical',
+                    left: '8%',
+                    top: '5%',
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    data:name1
+                }
+            ],
+            color: [
+                '#988D80',
+                '#7F4620',
+                '#624F40',
+                '#223B3A',
+                '#532B23',
+                '#505B59',
+                '#343231',
+                '#714641',
+                '#7289ab',
+                '#5C4F43',
+                '#8E5118',
+                '#998A7E',
+                '#B6B6B6',
+                '#414141'
+            ],
+            series: [ 
+                {
+                    left: '20%',
+                    top: '8%',
+                    type: 'pie',
+                    radius: [0, '30%'],
+                    avoidLabelOverlap: false,
+                    selectedMode: 'single',
+                    label: {
+                        position: 'inner',
+                        fontSize: 14
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                        }
+                    },
+                    data: result
+                },
+                {
+                    left: '20%',
+                    top: '8%',
+                    type: 'pie',
+                    radius: ['50%', '85%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{b|{b}：}{c}  {per|{d}%}  ',
+                        backgroundColor: '#F6F8FC',
+                        borderColor: '#8C8D8E',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        rich: {
+                            hr: {
+                                borderColor: '#8C8D8E',
+                                width: '100%',
+                                borderWidth: 1,
+                                height: 0
+                            },
+                            b: {
+                                color: '#4C5058',
+                                fontSize: 12,
+                                fontWeight: 'bold',
+                                lineHeight: 32
+                            },
+                            per: {
+                                color: '#fff',
+                                backgroundColor: '#4C5058',
+                                padding: [3, 4],
+                                fontSize: 12,
+                                borderRadius: 4
+                            }
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                        }
+                    },
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    data: result1
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+      });
     </script>
 
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart3 = echarts.init(document.getElementById('echarts3'), null, {
-            devicePixelRatio: 2.5
-        });
+        var myChart3 = echarts.init(document.getElementById('echarts3'),null, {devicePixelRatio: 2.5});
         // 指定图表的配置项和数据
         var result = [];
         var data = [];
-        $.getJSON('assets/data/echarts3.json', function(data1) {
-            $.each(data1, function(i, item) {
-                result[i] = {
-                    'name': item.armsname,
-                    'value': item.num,
-                    'time': item.time
-                };
+        $.getJSON('assets/data/echarts3.json', function(data1){
+            $.each(data1, function(i,item){
+                result[i]={'name':item.armsname,'value':item.num,'time':item.time};
             });
             var category_num = 0;
-            while (result[category_num]['time'] == result[0]['time'])
+            while(result[category_num]['time']==result[0]['time'])
                 category_num += 1;
             var index = 0;
-            for (; index < category_num; index++) {
-                data[index] = [result[index]['value'], result[index]['name']];
+            for(;index<category_num;index++){
+                data[index]=[result[index]['value'],result[index]['name']];
             }
-            var time = result[0]['time'].replace('-', '.');
-            time = time.substr(0, 7);
+            var time = result[0]['time'].replace('-','.');
+            time = time.substr(0,7);
             const weaponColors = {
                 '坦克': '#6B2B1F',
                 '飞机': '#414141',
@@ -1406,9 +1392,11 @@ if (Yii::$app->session->hasFlash('success_save'))
             var option3 = {
                 title: {
                     text: 'Number Of Weapon Losses',
-                    left: '40%',
-                    fontSize: 35,
-                    fontStyle: 'bold'
+                    left: '30%',
+                    textStyle:{
+                        fontSize:30, //字体大小
+                        color:'#221414'
+                    }
                 },
                 xAxis: {
                     max: 'dataMax',
@@ -1432,20 +1420,21 @@ if (Yii::$app->session->hasFlash('success_save'))
                         }
                     }
                 },
-                series: [{
+                series: [
+                {
                     realtimeSort: true,
                     top: '10%',
                     type: 'bar',
                     data: data,
                     seriesLayoutBy: 'column',
                     itemStyle: {
-                        color: function(param) {
-                            return weaponColors[param.value[1]] || '#5470c6';
+                        color: function (param) {
+                            return weaponColors[param.value[1]]||'#5470c6';
                         }
                     },
-                    encode: {
-                        x: 0,
-                        y: 3,
+                    encode: { 
+                        x: 0, 
+                        y: 3, 
                     },
                     label: {
                         show: true,
@@ -1454,47 +1443,47 @@ if (Yii::$app->session->hasFlash('success_save'))
                         valueAnimation: true,
                         fontFamily: 'monospace'
                     }
-                }],
+                }
+                ],
                 animationDuration: 3000,
                 animationDurationUpdate: 3000,
                 animationEasing: 'linear',
                 animationEasingUpdate: 'linear',
                 graphic: {
-                    elements: [{
-                        type: 'text',
-                        right: 0,
-                        bottom: 60,
-                        style: {
-                            text: time.toString(),
-                            font: 'bolder 80px monospace',
-                            fill: 'rgba(100, 100, 100, 0.25)'
-                        },
-                        z: 100
-                    }]
-                }
+                  elements: [
+                      {
+                          type: 'text',
+                          right: 0,
+                          bottom: 60,
+                          style: {
+                              text: time.toString(),
+                              font: 'bolder 80px monospace',
+                              fill: 'rgba(100, 100, 100, 0.25)'
+                          },
+                          z: 100
+                      }
+                  ]
+              }
             };
-
             function update() {
-                if (start == 1) {
-                    var data = option3.series[0].data;
-                    if (index == result.length)
-                        return;
-                    for (var i = 0; i < category_num; ++i) {
-                        //data[i]['name']=result[index+i]['name'];
-                        //data[i]['value']=result[index+i]['value'];
-                        data[i] = [result[index + i]['value'], result[index + i]['name']];
-                    }
-                    time = result[index]['time'].replace('-', '.');
-                    time = time.substr(0, 7);
-                    index += category_num;
-                    option3.series[0].data = data;
-                    option3.graphic.elements[0].style.text = time;
-                    myChart3.setOption(option3);
+                if(start==1){
+                var data = option3.series[0].data;
+                if(index==result.length)
+                    return;
+                for (var i = 0; i < category_num; ++i) {
+                    //data[i]['name']=result[index+i]['name'];
+                    //data[i]['value']=result[index+i]['value'];
+                    data[i]=[result[index+i]['value'],result[index+i]['name']];
                 }
+                time = result[index]['time'].replace('-','.');
+                time = time.substr(0,7);
+                index += category_num;
+                option3.series[0].data=data;
+                option3.graphic.elements[0].style.text = time;
+                myChart3.setOption(option3);
             }
-            setInterval(function() {
-                update();
-            }, 100);
+            }
+            setInterval(function() { update();}, 100);
             // 使用刚指定的配置项和数据显示图表。
             myChart3.setOption(option3);
         });

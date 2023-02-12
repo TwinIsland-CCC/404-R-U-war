@@ -4067,7 +4067,8 @@ from {
 
 .cbp-l-grid-work {
   visibility:hidden;
-  overflow:hidden
+  overflow:hidden;
+  height: 700px !important;
 }
 
 /* adjust the caption height and add some margin-bottom*/
@@ -4105,18 +4106,18 @@ from {
 .cbp-l-grid-work .cbp-item {
   padding:0;
   width:100% !important;
-  display:block;
+  height:710px !important;
 }
 .cbp-item .row1{
-  width:1200px !important;
+  width:1300px !important;
   position: relative;
   display:block;
   margin: 0 auto;
-  margin-bottom: 30px;
+  height:710px !important;
 }
-.cbp-item .item{
+.cbp-item .echarts-item{
   width:1000px !important;
-  box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+  box-shadow: 0px 0px 15px rgba(62, 41, 5, 0.1);
   position: relative;
   transform: translateX(10px);
   border-radius: 15px !important;
@@ -4124,6 +4125,7 @@ from {
   background-color:#fff;
   margin: 0 auto;
   margin-left: 120px;
+  height:610px !important;
 }
 .cbp-item .citem{
   width:1000px !important;
