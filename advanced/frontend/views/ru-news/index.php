@@ -147,13 +147,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <p>%s</p>
                                                 <div class="item-metas smoothtransition">
                                                     <div>
-                                                        <strong class="colour-hover"><i class="fa fa-clock-o"></i> Posted 02/01/15 </strong>
-                                                        <strong class="colour-hover"><i class="fa fa-comment"></i> 4</strong>
+                                                        <strong class="colour-hover"><i class="fa fa-clock-o"></i> %s </strong>
+                                                        <strong class="colour-hover"><i class="fa fa-comment"></i> %s </strong>
                                                         <strong class="pull-right colour-hover"><a href="https://www.nytimes.com/%s" data-toggle="tooltip" data-placement="left" title="View Article"><i class="fa fa-link"></i></a></strong>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>', $item->url, $item->title, $item->description, $item->url));
+                                        </div>', $item->url, $item->title, $item->description, $item->date, $item->comment_num, $item->url));
                                 }
                             ?>
                             <div class="col-md-12 mt wow fadeInUp">
@@ -169,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="row">
                                     <ul class="direction-aware owl-carousel-paged wow fadeInUp list-unstyled" data-items="1" data-items-tablet="[768,1]" data-items-mobile="[479,1]">
                                         <?php
-                                            $model = RuNews::findBySql('select * from ru_news')->all();
+                                            $model = RuNews::findBySql('select * from ru_news order by id desc')->all();
                                             $i = 0;
                                             foreach($model as $item){
                                                 echo (
@@ -194,7 +194,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
                                 <div>
                                     <?php   
-                                        $model = RuNews::findBySql('select * from ru_news')->all();
+                                        $model = RuNews::findBySql('select * from ru_news order by score desc')->all();
                                         $i = 0;
                                         foreach($model as $item){
                                             echo (
@@ -209,26 +209,12 @@ $this->params['breadcrumbs'][] = $this->title;
                                             echo (sprintf(
                                                         '<div class="muted">
                                                             <ul class="list-inline post-meta-list">
-                                                                <li><i class="pe-7s-clock"></i> <a href="https://www.nytimes.com/%s" title="">10/12/2014</a></li>
-                                                                <li><i class="pe-7s-user"></i> <a href="https://www.nytimes.com/%s" title="">%s</a></li>
-                                                            </div></div></div>', $item->url, $item->url, $item->author));
+                                                                <li><i class="pe-7s-clock"></i> <a href="https://www.nytimes.com/%s" title=""> %s</a></li>
+                                                                <li><i class="pe-7s-user"></i> <a href="https://www.nytimes.com/%s" title=""> %s</a></li>
+                                                            </div></div></div>', $item->url, $item->date, $item->url, $item->author));
                                             if(++$i >= 4) break;
                                         }
                                     ?>
-                                    <div class="media">
-                                        <div class="pull-left">
-                                            <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <span class="media-heading"><a class="coloured" href="#">Blog Post A</a></span>
-                                            <div class="muted">
-                                                <ul class="list-inline post-meta-list">
-                                                    <li><i class="pe-7s-clock"></i> <a href="#" title="">10/12/2014</a></li>
-                                                    <li><i class="pe-7s-user"></i> <a href="#" title="">Richard Blake</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

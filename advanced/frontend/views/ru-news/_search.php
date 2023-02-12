@@ -1,11 +1,11 @@
 <?php
 
-/** 
-* Team: 404NotFound 
-* Coding by Que MingKai 2012411 
-*           2023/2/5 
-* Russian-Ukraine War news table CRUD class 
-*/ 
+/**   
+* Team: 404NotFound   
+* Coding by Que MingKai 2012411   
+*          2023/2/5   
+* Russian-Ukraine War news table CRUD class   
+*/
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -35,6 +35,10 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'description') ?>
 
     <?php // echo $form->field($model, 'img_path') ?>
+
+    <?php // echo $form->field($model, 'comment_num') ?>
+
+    <?php // echo $form->field($model, 'score') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

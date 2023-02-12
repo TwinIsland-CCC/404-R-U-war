@@ -1,10 +1,10 @@
 <?php
 
-/** 
-* Team: 404NotFound 
-* Coding by Que MingKai 2012411 
-*           2023/2/5 
-* Russian-Ukraine War news table model class 
+/**   
+* Team: 404NotFound   
+* Coding by Que MingKai 2012411   
+*          2023/2/5   
+* Russian-Ukraine War news main class   
 */
 
 namespace frontend\models;
@@ -21,6 +21,8 @@ use Yii;
  * @property string|null $date
  * @property string|null $description
  * @property string|null $img_path
+ * @property int $comment_num
+ * @property float $score
  */
 class RuNews extends \yii\db\ActiveRecord
 {
@@ -39,6 +41,8 @@ class RuNews extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'url', 'author', 'date', 'description', 'img_path'], 'string'],
+            [['comment_num'], 'integer'],
+            [['score'], 'number'],
         ];
     }
 
@@ -55,6 +59,8 @@ class RuNews extends \yii\db\ActiveRecord
             'date' => 'Date',
             'description' => 'Description',
             'img_path' => 'Img Path',
+            'comment_num' => 'Comment Num',
+            'score' => 'Score',
         ];
     }
 

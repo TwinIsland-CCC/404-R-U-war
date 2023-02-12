@@ -1,11 +1,11 @@
 <?php
 
-/** 
-* Team: 404NotFound 
-* Coding by Que MingKai 2012411 
-*           2023/2/5 
-* Russian-Ukraine War news table search class 
-*/ 
+/**   
+* Team: 404NotFound   
+* Coding by Que MingKai 2012411   
+*          2023/2/5   
+* Russian-Ukraine War news table search class   
+*/
 
 namespace frontend\models;
 
@@ -24,8 +24,9 @@ class RuNewsSearch extends RuNews
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'comment_num'], 'integer'],
             [['title', 'url', 'author', 'date', 'description', 'img_path'], 'safe'],
+            [['score'], 'number'],
         ];
     }
 
@@ -66,6 +67,8 @@ class RuNewsSearch extends RuNews
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'comment_num' => $this->comment_num,
+            'score' => $this->score,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
