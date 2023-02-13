@@ -13,7 +13,7 @@ class NytimesSpider(scrapy.Spider):
 
     # entry point for the spider
     def parse(self, response):
-        db = pymysql.connect(host='localhost', user='root', password='qmk2147483647', db='ru_war', port=3306)
+        db = pymysql.connect(host='localhost', user='root', password='', db='ru_war', port=3306)
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()
         divList = response.xpath('//*[@id="stream-panel"]/div[1]/ol/*')

@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h2><a class="navbar-brand" href="index.php">ELLO</a></h2>
+                <h2><a class="navbar-brand" href="index.php">Russian-Ukrainian War</a></h2>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -165,7 +165,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div id="main-sidebar" class="col-md-3 col-md-offset-1 divider-wrapper wow fadeInRight" data-wow-delay="0.5s">
                         <div>
                             <div class="widget carousel-widget">
-                                <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                                <h4 class="widget-title"><strong>Initial</strong> Articles</h4>
                                 <div class="row">
                                     <ul class="direction-aware owl-carousel-paged wow fadeInUp list-unstyled" data-items="1" data-items-tablet="[768,1]" data-items-mobile="[479,1]">
                                         <?php
@@ -191,7 +191,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
 
                             <div class="widget">
-                                <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                                <h4 class="widget-title"><strong>Hot</strong> Articles</h4>
                                 <div>
                                     <?php   
                                         $model = RuNews::findBySql('select * from ru_news order by score desc')->all();
