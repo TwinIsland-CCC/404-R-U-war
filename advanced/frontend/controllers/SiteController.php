@@ -53,7 +53,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -82,19 +82,22 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //return $this->render('index');
-        //return $this->renderpartial('index');
-    //}
-
-    //public function actionSubmit()
-    //{
         $model = new Suggestion();
         $model->id=Suggestion::find()->count();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success_save', 'Thank you for your suggestion.');
-            //echo "<script language=\"JavaScript\">alert(\"用户名不能为空！\");</script>";
-            return $this->goHome();
+
+        if (!Yii::$app->user->isGuest) {
+            Yii::$app->session->setFlash('login', 'Already log in.');
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success_save', 'Thank you for your suggestion.');
+                return $this->goHome();
+            }
         }
+        else {
+            if ($model->load(Yii::$app->request->post())) {
+                Yii::$app->session->setFlash('login', 'Have not logged in.');
+            }
+        }
+
         $model->username = '';
         $model->email = '';
         $model->suggestion = '';
@@ -121,7 +124,7 @@ class SiteController extends Controller
 
         $model->password = '';
 
-        return $this->render('login', [
+        return $this->renderPartial('login', [
             'model' => $model,
         ]);
     }
@@ -184,7 +187,7 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        return $this->render('signup', [
+        return $this->renderPartial('signup', [
             'model' => $model,
         ]);
     }

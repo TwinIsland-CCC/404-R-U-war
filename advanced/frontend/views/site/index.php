@@ -25,7 +25,11 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 
 if (Yii::$app->session->hasFlash('success_save'))
-    //echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";
+    echo "<script>alert('" . Yii::$app->session->getFlash('success_save') . "')</script>";
+if(Yii::$app->session->getFlash('login')=='Have not logged in.') {
+    echo "<script>alert('Please log in first!')</script>";
+    Url::to(['#login']);
+}
 ?>
 
 <!--
@@ -894,17 +898,21 @@ if (Yii::$app->session->hasFlash('success_save'))
             </div>
         </div>
     </section>
-
-
-    <section class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg1.jpg" data-speed="0.7">
+    
+    <section id="login" class="divider-wrapper-a section-wrapper opaqued" data-parallax="scroll" data-image-src="assets/img/bg/bg1.jpg" data-speed="0.7">
         <div class="section-inner">
             <div class="container">
                 <div class="row wow fadeInUp">
                     <div class="col-md-12 centered">
-                        <form id="subscribe-box" role="form" action="register.php" method="post">
-                            <input type="email" name="email" class="form-control outlined subscribe-input" placeholder="Enter your e-mail address..." required>
-                            <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit">Sign Up</button>
-                        </form>
+                    <div class='btn btn-theme btn-white pull-left subscribe-submit' style="font-size:30px;">404 NOT FOUND</div>
+                        <?php if(Yii::$app->session->getFlash('login')=='Already log in.'){
+                        ?>
+                        <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit"><?= Html::a('Log Out', ['site/logout']) ?></button>
+                        <?php } 
+                        else{?>
+                        <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit" style="margin-left: 50px;"><?= Html::a('Log In', ['site/login']) ?></button>
+                        <button class='btn btn-theme btn-white pull-right subscribe-submit' type="submit"><?= Html::a('Sign Up', ['site/signup']) ?></button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
