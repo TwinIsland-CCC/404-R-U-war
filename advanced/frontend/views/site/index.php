@@ -981,7 +981,7 @@ if(Yii::$app->session->getFlash('login')=='Have not logged in.') {
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="widget about-us-widget">
-                            <h4 class="widget-title"><strong>Global</strong> Coverage</h4>
+                            <h4 class="widget-title"><strong>Brief</strong> Introduction</h4>
                             <p>The site presents different data including battle line graphs, loss data charts, timeline and major events, New York Times news handling and weapons display modules used, and a suggestion and feedback module at the end. </p>
                         </div>
                     </div>
