@@ -1149,7 +1149,7 @@ if(Yii::$app->session->getFlash('login')=='Have not logged in.') {
             tooltip: {
                 position: 'top'
             },
-             dataZoom: [{
+            dataZoom: [{
                  type: 'inside'
              }],
             grid: {
@@ -1510,53 +1510,71 @@ if(Yii::$app->session->getFlash('login')=='Have not logged in.') {
             $index = 0;
             $pre = 0;
             foreach ($model4 as $item) {
-                echo ('{value: '. $item->num .', name : "'. $item->country_name .'"},');
+                echo ('["'. $item->country_name .'", '. $item->num .'],');
             }
             ?>
             ]
+            
         var option4 = {
                 title: {
-                    text: 'The Proportion Of Weapons In The War',
+                    text: "Nationality Of Weapon Companies",
                     left: '18%',
                     textStyle:{
                         fontSize:30, //字体大小
                         color:'#221414'
                     }
                 },
-                color: [
-                    '#988D80',
-                    '#7F4620',
-                    '#624F40',
-                    '#223B3A',
-                    '#532B23',
-                    '#505B59',
-                    '#343231',
-                    '#714641',
-                    '#7289ab',
-                    '#5C4F43',
-                    '#8E5118',
-                    '#998A7E',
-                    '#B6B6B6',
-                    '#414141'
-                ],
+                xAxis: {
+                    type: 'category',
+                    name:'country',
+                    nameTextStyle:{//x坐标轴名称的字体样式
+                        color:'#221414', 
+                        fontSize:16
+                    }
+                },
+                dataZoom: [{
+                    type: 'inside'
+                }],
+                yAxis: {
+                    type: 'value',
+                    name:'Company num',
+                    nameTextStyle:{
+                        color:'#221414', 
+                        fontSize:16
+                    }
+                },
+                color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                    {
+                        offset: 0,
+                        color: '#988D80'
+                    },
+                    {
+                        offset: 1,
+                        color: '#7F4620'
+                    }
+                ]),
 
             series: [
                 {
-                type: 'pie',
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: 'rgba(180, 180, 180, 0.2)'
+                },
                 data: data4,
-                        avoidLabelOverlap: false,
-                        selectedMode: 'single',
-                        label: {
-                            position: 'outer',
-                            fontSize: 14
-                        },
-                        emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: '30',
-                                fontWeight: 'bold'
-                            }
-                        }
+                avoidLabelOverlap: false,
+                selectedMode: 'single',
+                label: {
+                    position: 'outer',
+                    fontSize: 14
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
                 }
             ]
         };
