@@ -5,6 +5,7 @@
  *  Coding by Que MingKai 2012411
  *            Su YuJia    2011068
  *            Luo XinKe   2013622
+ *            Wang YiRu   1911573
  *            2023/2/8
  *  new frontend's index.php 
  *  loss weapons' kind 

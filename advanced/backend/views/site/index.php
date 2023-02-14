@@ -20,7 +20,7 @@ use yii\bootstrap5\Html;
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <title>Dashboard | 404NotFound Palace Backend</title>
+    <title>404NotFound: Russian-Ukraine War Backend Dashboard</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -188,32 +188,32 @@ use yii\bootstrap5\Html;
 						</a>
 						<ul>
 							<li>
-								<a href="data/team/404NotFound_需求文档(2013622_2011068_2012411_1911573).pdf">
+								<a href="data/team/404NotFound_需求文档(2012411_2013622_2011068_1911573).pdf">
 									<span class="title">404NotFound_需求文档</span>
 								</a>
 							</li>
 							<li>
-								<a href="data/team/404NotFound_设计文档(2013622_2011068_2012411_1911573).pdf">
+								<a href="data/team/404NotFound_设计文档(2012411_2013622_2011068_1911573).pdf">
 									<span class="title">404NotFound_设计文档</span>
 								</a>
 							</li>
 							<li>
-								<a href="data/team/404NotFound_实现文档(2013622_2011068_2012411_1911573).pdf">
+								<a href="data/team/404NotFound_实现文档(2012411_2013622_2011068_1911573).pdf">
 									<span class="title">404NotFound_实现文档</span>
 								</a>
 							</li>
 							<li>
-								<a href="data/team/404NotFound_用户手册(2013622_2011068_2012411_1911573).pdf">
+								<a href="data/team/404NotFound_用户手册(2012411_2013622_2011068_1911573).pdf">
 									<span class="title">404NotFound_用户手册</span>
 								</a>
 							</li>
 							<li>
-								<a href="data/team/404NotFound_部署文档(2013622_2011068_2012411_1911573).pdf">
+								<a href="data/team/404NotFound_部署文档(2012411_2013622_2011068_1911573).pdf">
 									<span class="title">404NotFound_部署文档</span>
 								</a>
 							</li>
 							<li>
-								<a href="data/team/404NotFound_项目展示PPT(2013622_2011068_2012411_1911573).ppt">
+								<a href="data/team/404NotFound_项目展示(2012411_2013622_2011068_1911573).pptx">
 									<span class="title">404NotFound_项目展示PPT</span>
 								</a>
 							</li>
@@ -592,7 +592,7 @@ use yii\bootstrap5\Html;
 					<div class="footer-text">
 						&copy; 2023 
 						<strong>404 NOT FOUND</strong> 
-						已把源代码上传到了Github，大家可以通过如下地址下载： <a href="https://github.com/TwinIsland-CCC/404-R-U-war.git" target="_blank" title=" ">GitHub链接</a> 
+						已把源代码上传到了Github，大家可以通过如下地址下载： <a href="https://github.com/TwinIsland-CCC/404-R-U-war" target="_blank" title=" ">GitHub链接</a> 
 					</div>
 					
 					

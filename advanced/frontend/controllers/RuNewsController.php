@@ -1,4 +1,10 @@
 <?php
+/**   
+* Team: 404NotFound   
+* Coding by Que MingKai 2012411   
+*          2023/2/5   
+* Russian-Ukraine War news controller   
+*/
 
 namespace frontend\controllers;
 

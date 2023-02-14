@@ -1,12 +1,14 @@
 @echo off
+chcp 65001
 start "composer install" cmd /k composer install --ignore-platform-reqs
 
-echo ***ÖØÒª***ÇëµÈ´ıcomposer installÍê³ÉÖ®ºóÔÙ½øĞĞÏÂÒ»²½²Ù×÷¡£
-echo ÁíÍâ£¬ÇëÈ·±£±¾½Å±¾ÖĞÃ¿Ò»²½¶¼ÍêÕûÖ´ĞĞ£¬·ñÔòÏµÍ³¿ÉÄÜ²»ÍêÈ«²¿Êğ£¬Õâ¿ÉÒÔÍ¨¹ıÔÙ´ÎÖ´ĞĞ½Å±¾½â¾ö¡£
+echo ***é‡è¦***è¯·ç­‰å¾…composer installå®Œæˆä¹‹åå†è¿›è¡Œä¸‹ä¸€æ­¥æ“ä½œã€‚
+
+echo å¦å¤–ï¼Œè¯·ç¡®ä¿æœ¬è„šæœ¬ä¸­æ¯ä¸€æ­¥éƒ½å®Œæ•´æ‰§è¡Œï¼Œå¦åˆ™ç³»ç»Ÿå¯èƒ½ä¸å®Œå…¨éƒ¨ç½²ï¼Œè¿™å¯ä»¥é€šè¿‡å†æ¬¡æ‰§è¡Œè„šæœ¬è§£å†³ã€‚
 
 call init.bat
 
-echo ³õÊ¼»¯³É¹¦¡£ÇëÊäÈëÊı¾İ¿ârootÓÃ»§µÄÃÜÂë¡£
+echo åˆå§‹åŒ–æˆåŠŸã€‚è¯·è¾“å…¥æ•°æ®åº“rootç”¨æˆ·çš„å¯†ç ã€‚   
 
 @echo off
 set "OldStr=%~dp0"
@@ -16,7 +18,7 @@ set "main-local=%NewStr%common/config/main-local.php"
 set "dbname=ru_war"
 
 
-set /p password=ÇëÊäÈëÊı¾İ¿ârootÓÃ»§µÄÃÜÂë:
+set /p password=è¯·è¾“å…¥æ•°æ®åº“rootç”¨æˆ·çš„å¯†ç :
 set "qout_password='%password%'"
 
 @echo off & setlocal enabledelayedexpansion 
