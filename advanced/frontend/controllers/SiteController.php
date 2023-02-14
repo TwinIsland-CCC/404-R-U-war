@@ -96,6 +96,9 @@ class SiteController extends Controller
             if ($model->load(Yii::$app->request->post())) {
                 Yii::$app->session->setFlash('login', 'Have not logged in.');
             }
+            else {
+                Yii::$app->session->setFlash('login', ' ');
+            }
         }
 
         $model->username = '';
